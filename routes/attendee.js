@@ -1,28 +1,22 @@
 /**
- * organizer.js
+ * attendee.js
  * Routes for:
- *  Organizer main page
- *  Organizer setting page
- *  Organizer edit event page
+ *  Attendee main page
+ *  Attendee setting page
  */
 
 
 const express = require("express");
 const router = express.Router();
 
-// Organizer Home
-router.get("/home", function (req, res) {
-  res.render("organizerHome.ejs")
+// Attendee Home
+router.get("/", function (req, res) {
+  res.render("attendeeHome.ejs")
 });
 
-// Site Settings
-router.get("/siteSettings", function (req, res) {
-  res.render("siteSettings.ejs")
-});
-
-// Site Settings
-router.get("/editEvent", function (req, res) {
-  res.render("editEvent.ejs")
+// Attendee Event page
+router.get("/event", function (req, res) {
+  res.render("attendeeEvent.ejs")
 });
 
 module.exports = router;
