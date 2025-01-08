@@ -40,12 +40,15 @@ VALUES ('dianne@yahoo.co.uk', 2);
 
 -- Create Site Setting Table
 CREATE TABLE IF NOT EXISTS site_settings (
-  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   home_page_title TEXT NOT NULL,
   home_page_desc TEXT NOT NULL
 );
 
 INSERT INTO site_settings ('home_page_title', 'home_page_desc')
-VALUES ('Home Page Set in DB', 'Home page desc set in db');
+VALUES (
+    'Home Page Set in DB',
+    'Home page desc set in db'
+  );
 
 COMMIT;

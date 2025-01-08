@@ -29,7 +29,7 @@ router.get("/", function (req, res) {
         next(err); //send the error on to the error handler
       } else {
         // res.json(rows); // render page as simple json
-        // console.log(result)
+        //console.log(result)
         // res.send(result[0])
 
         // res.render("organizerHome.ejs", { title: "hi there" })
