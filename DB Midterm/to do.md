@@ -25,15 +25,18 @@
 - [ ] check Site Settings page updates
 - [x] remove old row from db
 - [x]  populate form data with current settings
-- [ ] add site settings form for Attendee page
-- [ ] populate site setting  Attendee page form w data
-- [ ] check Attendee page updates
+- [x] add site settings form for Attendee page
+- [x] populate site setting  Attendee page form w data
+- [x] check Attendee page updates
 - [x] remove old row from db
 - [x]  populate form data with current settings
-- [ ] add site settings form for Attendee Event page
-- [ ] populate site setting  Attendee Event page form w data
-- [ ] check Attendee  Event page updates
-- [ ]  populate form data with current settings
+- [x] add site settings form for Attendee Event page
+- [x] populate site setting  Attendee Event page form w data
+- [x] check Attendee  Event page updates
+- [x]  populate form data with current settings
+- [ ] use validator on all forms
+- [ ] error handeling: redirect to siteSetting with message
+
 
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
