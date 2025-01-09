@@ -64,21 +64,34 @@ router.post("/home_page_settings", (req, res, next) => {
   );
 });
 
-/*
-SELECT title, desc, heading FROM site_settings 
-where 
-name='home_page'  
- OR name='organizer_home_page' 
-OR name='edit_event_page' 
-OR name='site_settings_page'
-OR name='attendee_page'
-OR name='attendee_events_page';
-*/
 
-// Site Settings
+
 router.get("/siteSettings", function (req, res) {
-  res.render("siteSettings.ejs")
+  let query = " SELECT title, desc, heading FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
+
+  // Execute the query and render the page with the results
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
+
+        // do something if error from lab: res.redirect("/");
+        next(err); //send the error on to the error handler
+      } else {
+        // res.json(rows); // render page as simple json
+        console.log(result)
+        // res.send(result[0])
+
+        res.render("siteSettings.ejs", { formData: result })
+      }
+    }
+  );
+
 });
+
+// // Site Settings
+// router.get("/siteSettings", function (req, res) {
+//   res.render("siteSettings.ejs")
+// });
 
 
 

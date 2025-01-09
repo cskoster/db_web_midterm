@@ -9,41 +9,52 @@
   <body>
     <h1>Site Settings Page</h1>
 
-    <!-- <form action="add-user" method="post">
-      <p>User: <input id="user" type="text" name="user_name" /></p>
-      <button type="submit">Create a new user record</button>
-    </form> -->
-    <p>Home Page Settings</p>
+    <!-- <p>Home Page Settings</p>
     <form action="home_page_settings" method="post">
       <p>Title: <input id="id_home_page_settings" type="text" name="home_page_title" /></p>
       <p>Header: <input id="id_home_page_settings" type="text" name="home_page_header" /></p>
       <p>Description:<input id="id_home_page_settings" type="text" name="home_page_desc" /></p>
       <button type="submit">Update the Home Page</button>
     </form>
+ -->
+    <% formData.forEach( (data) => { %>
+    <p><%=data.title %> Settings</p>
+    <p><%=data.name %></p>
 
-    <p>Org page title</p>
-    <p>Org page heading</p>
-    <p>Org page desc</p>
+    <!-- data.name is the name of the column in the db, so it is safe to use and wont change. TODO: make sure -->
+    <form action="<%=data.name%>_settings" method="post">
+      <p>
+        Title:
+        <input
+          id="id_<%=data.name%>_settings"
+          type="text"
+          size="20"
+          name="<%=data.name%>_title"
+          value="<%=data.title%>"
+        />
+      </p>
+      <p>
+        Header:
+        <input
+          id="id_<%=data.name%>_settings"
+          type="text"
+          size="20"
+          name="<%=data.name%>_heading"
+          value="<%=data.title%>"
+        />
+      </p>
 
-    <p>Edit Event page title</p>
-    <p>Edit Event page heading</p>
-    <p>Edit Event page desc</p>
-
-    <p>Site Setting page title</p>
-    <p>Site Setting page heading</p>
-    <p>Site Setting page desc</p>
-
-    <p>Attendee page title</p>
-    <p>Attendee page heading</p>
-    <p>Attendee page desc</p>
-
-    <p>Attendee event page title</p>
-    <p>Attendee event page heading</p>
-    <p>Attendee event page desc</p>
-
-    <!-- <form action="add-user" method="post">
-      <p>User: <input id="user" type="text" name="user_name" /></p>
-      <button type="submit">Create a new user record</button>
-    </form> -->
+      <p>
+        Description:<input
+          id="id_<%=data.name%>_settings"
+          type="text"
+          size="20"
+          name="<%=data.name%>_desc"
+          value="<%=data.desc%>"
+        />
+      </p>
+      <button type="submit">Update the <%=data.title %></button>
+    </form>
+    <% }); %>
   </body>
 </html>
