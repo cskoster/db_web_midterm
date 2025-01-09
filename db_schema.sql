@@ -55,8 +55,7 @@ INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
     'Home Page',
     'Welcome to the Home Page',
-    'Link to Organizer Page',
-    'Attendee Page',
+    'Link to Organizer Page Attendee Page',
     'home_page'
   );
 
@@ -65,7 +64,7 @@ VALUES (
     'Organizer Home',
     'Welcome to the Organizer Home Page',
     'Link to Event Page, Draft Events, Publish event, Edit Event, and Site Settings',
-    'organizer_home'
+    'organizer_home_page'
   );
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
@@ -81,7 +80,7 @@ VALUES (
     'Site Settings',
     'Welcome to the Site Settings Page',
     'Change the Title, main Heading, and Descriptions of pages',
-    'site_setting_page'
+    'site_settings_page'
   );
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
@@ -94,10 +93,10 @@ VALUES (
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
-    'Attendee Event',
-    'Welcome to the Attendee Event Page',
-    'View an event',
-    'home_page'
+    'Attendee Event Page',
+    'Attendee Event Page',
+    'Mange events',
+    'attendee_events_page'
   );
 
 COMMIT;
