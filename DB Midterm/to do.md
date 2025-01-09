@@ -14,22 +14,22 @@
 - [x] remove old row from db
 - [x] add site settings form for organizer page
 - [x] populate site setting  organizer page form w data
-- [ ] check organizer page updates
-- [ ] remove old row from db
-- [ ]  populate form data with current settings
-- [ ] add site settings form for edit event page
-- [ ] remove old row from db
-- [ ] populate site setting  edit event page form w data
+- [x] check organizer page updates
+- [x] remove old row from db
+- [x]  populate form data with current settings
+- [x] add site settings form for edit event page
+- [x] remove old row from db
+- [x] populate site setting  edit event page form w data
 - [ ] add site settings form for Site Settings page
 - [ ] populate site setting  Site Settings page form w data
 - [ ] check Site Settings page updates
-- [ ] remove old row from db
-- [ ]  populate form data with current settings
+- [x] remove old row from db
+- [x]  populate form data with current settings
 - [ ] add site settings form for Attendee page
 - [ ] populate site setting  Attendee page form w data
 - [ ] check Attendee page updates
-- [ ] remove old row from db
-- [ ]  populate form data with current settings
+- [x] remove old row from db
+- [x]  populate form data with current settings
 - [ ] add site settings form for Attendee Event page
 - [ ] populate site setting  Attendee Event page form w data
 - [ ] check Attendee  Event page updates

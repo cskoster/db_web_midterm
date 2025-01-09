@@ -42,7 +42,9 @@ router.get("/", function (req, res) {
 
 
 
-// TODO: passing the tablename is not so good, as we write to its
+// TODO: passing the tablename is not so good, as we write to it
+// ALTERNATE: hard code the wole thing so we dont need to pass the table name
+// then need to write 6 forms, 6 blocks like below
 router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
   console.log("df : ", req.body.name)
@@ -85,19 +87,36 @@ router.get("/siteSettings", function (req, res) {
 
 });
 
-// // Site Settings
-// router.get("/siteSettings", function (req, res) {
-//   res.render("siteSettings.ejs")
-// });
 
 
-
-
-
-
-// // Site Settings
+// // Site Edit Event
 // router.get("/editEvent", function (req, res) {
-//   res.render("editEvent.ejs")
+//   res.render("organizerEditEvent.ejs")
 // });
+
+// Organizer Edit event Home
+router.get("/editEvent", function (req, res) {
+  let query = "SELECT title, desc, heading FROM site_settings where name='edit_event_page'";
+
+  // Execute the query and render the page with the results
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
+
+        // do something if error from lab: res.redirect("/");
+        next(err); //send the error on to the error handler
+      } else {
+        // res.json(rows); // render page as simple json
+        //console.log(result)
+        // res.send(result[0])
+
+        res.render("organizerEditEvent.ejs", result[0])
+      }
+    }
+  );
+
+});
+
+
 
 module.exports = router;
