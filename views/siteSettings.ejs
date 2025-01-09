@@ -18,29 +18,18 @@
     </form>
  -->
     <% formData.forEach( (data) => { %>
-    <p><%=data.title %> Settings</p>
-    <p><%=data.name %></p>
+    <p><b><%=data.title %> Settings</b></p>
 
-    <!-- data.name is the name of the column in the db, so it is safe to use and wont change. TODO: make sure -->
+    <!-- data.name data.title are not to be changed  -->
     <form action="<%=data.name%>_settings" method="post">
       <p>
-        Title:
-        <input
-          id="id_<%=data.name%>_settings"
-          type="text"
-          size="20"
-          name="<%=data.name%>_title"
-          value="<%=data.title%>"
-        />
-      </p>
-      <p>
-        Header:
+        Heading:
         <input
           id="id_<%=data.name%>_settings"
           type="text"
           size="20"
           name="<%=data.name%>_heading"
-          value="<%=data.title%>"
+          value="<%=data.heading%>"
         />
       </p>
 

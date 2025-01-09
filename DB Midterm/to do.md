@@ -10,10 +10,10 @@
 - [x] add site settings form for home page
 - [x] populate site setting  home page form w data
 - [x] check home page updates
-- [ ] populate form data with current settings
-- [ ] remove old row from db
-- [ ] add site settings form for organizer page
-- [ ] populate site setting  organizer page form w data
+- [x] populate form data with current settings
+- [x] remove old row from db
+- [x] add site settings form for organizer page
+- [x] populate site setting  organizer page form w data
 - [ ] check organizer page updates
 - [ ] remove old row from db
 - [ ]  populate form data with current settings
@@ -36,3 +36,4 @@
 - [ ]  populate form data with current settings
 
 
+TODO: remove write pemissions from the site_settings table so title and name dont change
