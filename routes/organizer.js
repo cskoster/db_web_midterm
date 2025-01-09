@@ -18,7 +18,7 @@ const router = express.Router();
 
 // Organizer Home
 router.get("/", function (req, res) {
-  let query = "SELECT page_title, page_desc FROM site_settings where page_name='organizer_home'";
+  let query = "SELECT title, desc, heading FROM site_settings where name='organizer_home'";
 
   // Execute the query and render the page with the results
   global.db.all(query,

@@ -27,10 +27,23 @@ global.db = new sqlite3.Database('./database.db', function (err) {
   }
 });
 
-// Home page in views/index.ejs
-app.get('/', (req, res) => {
-  res.render("index.ejs")
+// Home Page
+app.get("/", function (req, res) {
+  let query = "SELECT title, desc, heading FROM site_settings where name='home_page'";
+  // Execute the query and render the page with the results
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
+        // redirect to page TODO: handle better?
+        res.redirect("/organizer/siteSettings");
+      } else {
+        res.render("index.ejs", result[0])
+      }
+    }
+  );
+
 });
+
 
 // add route handlers in organizerRoutes to the app under the path /organizer
 const organizerRoutes = require("./routes/organizer");
