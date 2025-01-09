@@ -49,31 +49,7 @@ router.get("/siteSettings", function (req, res) {
 /**
  * @desc Add a new user to the database based on data from the submitted form
  */
-router.post("/add-user", (req, res, next) => {
-  // Define the query
-  query = "INSERT INTO users (user_name) VALUES( ? );"
-  query_parameters = [req.body.user_name]
-
-  // Execute the query and send a confirmation message
-  global.db.run(query, query_parameters,
-    function (err) {
-      if (err) {
-        next(err); //send the error on to the error handler
-      } else {
-        res.send(`New data inserted @ id ${this.lastID}!`);
-        next();
-      }
-    }
-  );
-});
-
-/**
- * @desc Add a new user to the database based on data from the submitted form
- */
 router.post("/home_page_settings", (req, res, next) => {
-  // Define the query
-  // UPDATE site_settings  SET  'title'='test_title','heading'='t_heading','desc'='test desc' WHERE name='home_page';
-
   query = "UPDATE site_settings SET  'title'= ?,'heading'= ?,'desc'= ? WHERE name= ?";
   query_parameters = [req.body.home_page_title, req.body.home_page_header, req.body.home_page_desc, 'home_page'];
 

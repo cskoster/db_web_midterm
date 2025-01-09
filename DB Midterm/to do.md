@@ -7,7 +7,7 @@
 - [x] add site settings page row
 - [x] add attendee home page row
 - [x] add attendee event page row
-- [ ] add site settings form for home page
+- [x] add site settings form for home page
 - [ ] populate site setting  home page form w data
 - [ ] check home page updates
 - [ ] add site settings form for organizer page
