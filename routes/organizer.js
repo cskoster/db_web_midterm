@@ -79,7 +79,6 @@ router.get("/siteSettings", function (req, res) {
         // another query for the desc and heading will be tricky
         //let query = "SELECT title, desc, heading FROM site_settings where name='site_settings_page'";
 
-
         res.render("siteSettings.ejs", { formData: result });
       }
     }

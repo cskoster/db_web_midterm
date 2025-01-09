@@ -34,8 +34,40 @@
 - [x] populate site setting  Attendee Event page form w data
 - [x] check Attendee  Event page updates
 - [x]  populate form data with current settings
-- [ ] use validator on all forms
+
+- [ ] adding individual siteSetting form for home page
+- [ ] add route for siteSetting form for home page
+- [ ] test individual siteSetting form for home page
+
+- [ ] adding individual siteSetting form for organizer home
+- [ ] add route for siteSetting form for organizer home
+- [ ] test individual siteSetting form for organizer home
+
+- [ ] adding individual siteSetting form for organizer edit event page
+- [ ] add route for siteSetting form for organizer edit event page
+- [ ] test individual siteSetting form for organizer edit event page
+
+- [ ] adding individual siteSetting form for attendee page
+- [ ] add route for siteSetting form for attendee page
+- [ ] test individual siteSetting form for attendee page
+
+- [ ] adding individual siteSetting form for attendee edit event page
+- [ ] add route for siteSetting form for attendee edit event page
+- [ ] test individual siteSetting form for attendee edit event page
+
+- [ ] adding individual siteSetting form for siteSetting page
+- [ ] add route for siteSetting form for siteSetting page
+- [ ] test individual siteSetting form for siteSetting page
+
+- [ ] adding validation for siteSetting form for organizer home
+- [ ] adding validation for siteSetting form for  home page
+- [ ]  adding validation for siteSetting form for organizer edit event page
+- [ ] adding validation for siteSetting form for attendee home page
+- [ ] adding validation for siteSetting form for attendee edit event page
+
+
 - [ ] error handeling: redirect to siteSetting with message
+
 
 
 
