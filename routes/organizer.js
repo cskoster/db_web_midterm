@@ -36,15 +36,12 @@ router.get("/", function (req, res) {
       }
     }
   );
-
 });
-
-
 
 
 // TODO: passing the tablename is not so good, as we write to it
 // ALTERNATE: hard code the wole thing so we dont need to pass the table name
-// then need to write 6 forms, 6 blocks like below
+// then need to write 6 forms, 6 blocks like below.
 router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
   console.log("df : ", req.body.name)
@@ -79,7 +76,11 @@ router.get("/siteSettings", function (req, res) {
         //console.log(result)
         // res.send(result[0])
 
-        res.render("siteSettings.ejs", { formData: result })
+        // another query for the desc and heading will be tricky
+        //let query = "SELECT title, desc, heading FROM site_settings where name='site_settings_page'";
+
+
+        res.render("siteSettings.ejs", { formData: result });
       }
     }
   );
