@@ -100,14 +100,30 @@ VALUES (
   );
 
 -- Create Event Table
-CREATE TABLE IF NOT EXISTS EVENTS (
+CREATE TABLE IF NOT EXISTS "events" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-  "title" TEXT,
-  "desc" TEXT,
+  "title" TEXT NOT NULL,
+  "desc" TEXT NOT NULL,
   -- 0 is FALSE, 1 is TRUE: https://www.sqlite.org/datatype3.html
   "published" INT,
-  "date_edited" TEXT,
+  "date_edited" TEXT NOT NULL,
   "date_published" TEXT
 );
+
+-- unpublished event
+INSERT INTO EVENTS (
+    'title',
+    'desc',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Party',
+    "Bob's bday",
+    0,
+    'Thu Jan 09 2025 15:46:19 GMT+0200 (South Africa Standard Time)',
+    NULL
+  );
 
 COMMIT;

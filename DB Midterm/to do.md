@@ -61,8 +61,8 @@
 
 HERE(above has problems. make more complicated)
 
-- [ ] make event table
-- [ ] 
+- [x] make event table
+- [ ] make add event form to edit events
 
 - [ ] adding validation for siteSetting form for organizer home
 - [ ] adding validation for siteSetting form for  home page
