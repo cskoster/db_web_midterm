@@ -62,7 +62,7 @@ router.post("/home_page_settings", (req, res, next) => {
 
 
 router.get("/siteSettings", function (req, res) {
-  let query = " SELECT desc, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
+  let query = " SELECT title, desc, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
 
   // Execute the query and render the page with the results
   global.db.all(query,
