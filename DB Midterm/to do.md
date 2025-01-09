@@ -71,6 +71,17 @@ HERE(above has problems. make more complicated)
 - [ ] adding validation for siteSetting form for attendee edit event page
 
 at: oranizer.js line 126
+https://www.geeksforgeeks.org/how-to-use-array-of-objects-in-ejs-template-engine/
+
+use the foreach loop to populate the forms
+
+have multiple forms populated each with own endpoint.
+
+https://www.reddit.com/r/node/comments/qrv1qd/can_i_send_more_than_one_dataset_to_an_ejs_file/
+
+put each row like this:
+Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
+
 
 - [ ] error handeling: redirect to siteSetting with message
 
