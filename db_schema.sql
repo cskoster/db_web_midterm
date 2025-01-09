@@ -99,4 +99,15 @@ VALUES (
     'attendee_events_page'
   );
 
+-- Create Event Table
+CREATE TABLE IF NOT EXISTS EVENTS (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "title" TEXT,
+  "desc" TEXT,
+  -- 0 is FALSE, 1 is TRUE: https://www.sqlite.org/datatype3.html
+  "published" INT,
+  "date_edited" TEXT,
+  "date_published" TEXT
+);
+
 COMMIT;

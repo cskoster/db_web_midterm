@@ -59,6 +59,11 @@
 - [ ] add route for siteSetting form for siteSetting page
 - [ ] test individual siteSetting form for siteSetting page
 
+HERE(above has problems. make more complicated)
+
+- [ ] make event table
+- [ ] 
+
 - [ ] adding validation for siteSetting form for organizer home
 - [ ] adding validation for siteSetting form for  home page
 - [ ]  adding validation for siteSetting form for organizer edit event page

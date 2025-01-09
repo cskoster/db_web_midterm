@@ -116,6 +116,23 @@ router.get("/editEvent", function (req, res) {
 
 });
 
+router.post("/update_site_settings", (req, res, next) => {
+  query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
+  console.log("df : ", req.body.name)
+  query_parameters = [req.body.heading, req.body.desc, req.body.name];
+  // Execute the query and send a confirmation message
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        next(err); //send the error on to the error handler
+      } else {
+        //res.send(`New data inserted @ id ${this.lastID}!`);
+        res.redirect("/organizer/siteSettings");
+        //next();
+      }
+    }
+  );
+});
 
 
 module.exports = router;

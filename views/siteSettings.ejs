@@ -12,6 +12,18 @@
     Leaving this here. It works. It is good code reuse. Except that the
     table name must be included.  A malicious user could change the table
     name.
+
+    On the other hand, creating multiple forms on the page means parsing
+    the query somewhere. if in the .ejs file, we must traverse and array
+    and find the correct object. this is highly coupled code.
+    Can we pass object of objects to the template?
+    {
+      home_page: {
+      title: foo
+      }
+    }
+
+    does node sqlite have options for returning an object? 
      -->
 
     <% formData.forEach( (data) => { %>
