@@ -42,9 +42,11 @@ router.get("/", function (req, res) {
 
 
 
-router.post("/home_page_settings", (req, res, next) => {
+// TODO: passing the tablename is not so good, as we write to its
+router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
-  query_parameters = [req.body.home_page_heading, req.body.home_page_desc, 'home_page'];
+  console.log("df : ", req.body.name)
+  query_parameters = [req.body.heading, req.body.desc, req.body.name];
 
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,

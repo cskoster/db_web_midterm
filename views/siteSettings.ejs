@@ -13,29 +13,17 @@
     <p><b><%=data.title %> Settings</b></p>
 
     <!-- data.name data.title are not to be changed  -->
-    <form action="<%=data.name%>_settings" method="post">
+    <form action="update_site_settings" method="post">
       <p>
         Heading:
-        <input
-          id="id_<%=data.name%>_settings"
-          type="text"
-          size="20"
-          name="<%=data.name%>_heading"
-          value="<%=data.heading%>"
-        />
+        <input id="id_settings_heading" type="text" size="20" name="heading" value="<%=data.heading%>" />
       </p>
 
-      <p>
-        Description:<input
-          id="id_<%=data.name%>_settings"
-          type="text"
-          size="20"
-          name="<%=data.name%>_desc"
-          value="<%=data.desc%>"
-        />
-      </p>
+      <p>Description:<input id="id_settings_desc" type="text" size="20" name="desc" value="<%=data.desc%>" /></p>
       <button type="submit">Update the <%=data.title %></button>
+      <input type="hidden" name="name" value="<%=data.name%>" />
     </form>
+
     <% }); %>
   </body>
 </html>
