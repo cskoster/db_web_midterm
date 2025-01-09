@@ -122,7 +122,9 @@ router.post("/create_event", (req, res, next) => {
   // query_parameters = [req.body.heading, req.body.desc, req.body.name];
   let dateEdited = new Date();
   query = "INSERT INTO event ";
-  here
+
+  HERE HERE HERE comment out and continue with the query for
+  a new event
 
 
   // // Execute the query and send a confirmation message

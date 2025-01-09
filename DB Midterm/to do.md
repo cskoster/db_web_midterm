@@ -70,6 +70,7 @@ HERE(above has problems. make more complicated)
 - [ ] adding validation for siteSetting form for attendee home page
 - [ ] adding validation for siteSetting form for attendee edit event page
 
+at: oranizer.js line 126
 
 - [ ] error handeling: redirect to siteSetting with message
 
