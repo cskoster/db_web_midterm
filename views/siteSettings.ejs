@@ -9,7 +9,18 @@
   <body>
     <h1>Site Settings Page</h1>
 
-    <p>Home page title</p>
+    <!-- <form action="add-user" method="post">
+      <p>User: <input id="user" type="text" name="user_name" /></p>
+      <button type="submit">Create a new user record</button>
+    </form> -->
+    <p>Home Page Settings</p>
+    <form action="home_page_settings" method="post">
+      <p>Title: <input id="id_home_page_settings" type="text" name="home_page_title" /></p>
+      <p>Header: <input id="id_home_page_settings" type="text" name="home_page_header" /></p>
+      <p>Description:<input id="id_home_page_settings" type="text" name="home_page_desc" /></p>
+      <button type="submit">Update the Home Page</button>
+    </form>
+
     <p>Home page heading</p>
     <p>Home page desc</p>
 
