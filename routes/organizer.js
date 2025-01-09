@@ -32,14 +32,11 @@ router.get("/", function (req, res) {
         //console.log(result)
         // res.send(result[0])
 
-        // res.render("organizerHome.ejs", { title: "hi there" })
         res.render("organizerHome.ejs", result[0])
       }
     }
   );
 
-
-  //res.render("organizerHome.ejs")
 });
 
 
@@ -47,6 +44,9 @@ router.get("/", function (req, res) {
 router.get("/siteSettings", function (req, res) {
   res.render("siteSettings.ejs")
 });
+
+
+
 
 // Site Settings
 router.get("/editEvent", function (req, res) {
