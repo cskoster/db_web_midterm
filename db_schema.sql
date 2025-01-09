@@ -51,10 +51,11 @@ CREATE TABLE IF NOT EXISTS site_settings (
   "name" TEXT NOT NULL
 );
 
-INSERT INTO site_settings ('page_title', 'page_desc', 'page_name')
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
-    'Organizer Page Set in DB',
-    'Organizer page desc set in db',
+    'Organizer Home',
+    'Welcome to the Organizer Home Page',
+    'Link to Event Page, Draft Events, Publish event, Edit Event, and Site Settings',
     'organizer_home'
   );
 
