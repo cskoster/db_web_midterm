@@ -1,12 +1,12 @@
 [[DB UML]]
 
-- [ ] create site settings table
-- [ ] add organizer_home row
-- [ ] add home page row
-- [ ] add edit Event page row
-- [ ] add site settings page row
-- [ ] add attendee home page row
-- [ ] add attendee event page row
+- [x] create site settings table
+- [x] add organizer_home row
+- [x] add home page row
+- [x] add edit Event page row
+- [x] add site settings page row
+- [x] add attendee home page row
+- [x] add attendee event page row
 - [ ] add site settings form for home page
 - [ ] populate site setting  home page form w data
 - [ ] check home page updates

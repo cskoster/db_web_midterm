@@ -53,10 +53,51 @@ CREATE TABLE IF NOT EXISTS site_settings (
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
+    'Home Page',
+    'Welcome to the Home Page',
+    'Link to Organizer Page',
+    'Attendee Page',
+    'home_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
     'Organizer Home',
     'Welcome to the Organizer Home Page',
     'Link to Event Page, Draft Events, Publish event, Edit Event, and Site Settings',
     'organizer_home'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
+    'Edit Event Page',
+    'Welcome to the Edit Event Page',
+    'Edit some events',
+    'edit_event_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
+    'Site Settings',
+    'Welcome to the Site Settings Page',
+    'Change the Title, main Heading, and Descriptions of pages',
+    'site_setting_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
+    'Attendee Home',
+    'Welcome to the Attendee Home Page',
+    'Mange events',
+    'attendee_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
+    'Attendee Event',
+    'Welcome to the Attendee Event Page',
+    'View an event',
+    'home_page'
   );
 
 COMMIT;
