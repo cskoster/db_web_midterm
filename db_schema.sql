@@ -149,4 +149,35 @@ VALUES (
     NULL
   );
 
+-- Published events
+INSERT INTO EVENTS (
+    'title',
+    'description',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Run in the hills',
+    "12 Km run with hills",
+    1,
+    'Thu Jan 11 2025 15:47:11',
+    'Thu Jan 11 2025 15:47:11'
+  );
+
+INSERT INTO EVENTS (
+    'title',
+    'description',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Flat run on the beach',
+    "6km run in sand",
+    1,
+    'Thu Jan 13 2025 15:47:11',
+    'Thu Jan 13 2025 15:47:11'
+  );
+
 COMMIT;
