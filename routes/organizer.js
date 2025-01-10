@@ -97,6 +97,7 @@ router.get("/siteSettings", function (req, res) {
 router.get("/editEvent", function (req, res) {
   let query = "SELECT title, desc, heading FROM site_settings where name='edit_event_page'";
 
+
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
@@ -105,14 +106,19 @@ router.get("/editEvent", function (req, res) {
         // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
       } else {
-        // res.json(rows); // render page as simple json
-        //console.log(result)
-        // res.send(result[0])
 
-        res.render("organizerEditEvent.ejs", result[0])
+        // ok works
+        data = {
+          page: result[0],
+          text: "Hi there"
+        }
+        res.render("organizerEditEvent.ejs", data)
       }
     }
   );
+
+
+
 
 });
 
@@ -123,8 +129,8 @@ router.post("/create_event", (req, res, next) => {
   let dateEdited = new Date();
   query = "INSERT INTO event ";
 
-  HERE HERE HERE comment out and continue with the query for
-  a new event
+  // HERE HERE HERE comment out and continue with the query for
+  // a new event
 
 
   // // Execute the query and send a confirmation message

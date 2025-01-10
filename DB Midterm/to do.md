@@ -78,3 +78,8 @@ at: oranizer.js line 126
 
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
+
+
+https://www.reddit.com/r/node/comments/qrv1qd/can_i_send_more_than_one_dataset_to_an_ejs_file/
+
+Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}

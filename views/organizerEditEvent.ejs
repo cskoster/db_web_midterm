@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=title%></title>
+    <title><%=page.title%></title>
   </head>
   <body>
     <h1>Create and Edit Events</h1>
-    <h1><%=heading%></h1>
-    <p><%=desc%></p>
+    <h1><%=page.heading%></h1>
+    <p><%=page.desc%></p>
 
     <p>Create a new event</p>
     <form action="create_event" method="post">
@@ -23,6 +23,6 @@
       <button type="submit">Create a new event</button>
     </form>
 
-    <h3>Existing events:</h3>
+    <h3>Existing unpublished events:</h3>
   </body>
 </html>
