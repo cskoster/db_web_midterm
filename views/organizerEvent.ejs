@@ -6,10 +6,9 @@
     <title><%=page.title%></title>
   </head>
   <body>
-    <h1>Create and Edit Events</h1>
+    <h1>Events Page</h1>
     <h1><%=page.heading%></h1>
     <p><%=page.desc%></p>
-    <p><%=text%></p>
 
     <div>
       <p>Create a new event</p>
@@ -28,11 +27,11 @@
 
     <div>
       <% event.forEach((data) => {%>
-      <form action="publish_event" method="post">
+      <form action="edit_event" method="post">
         <div>
           <%=data.title%>
-          <input type="hidden" id="event_<%=data.id%>" name="event_<%=data.id%>" value="publish" />
-          <button type="submit">Publish: <%=data.title %></button>
+          <input type="hidden" id="event_<%=data.id%>" name="event_<%=data.id%>" value="edit" />
+          <button type="submit">Edit: <%=data.title %></button>
         </div>
       </form>
       <%});%>
