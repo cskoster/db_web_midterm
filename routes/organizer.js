@@ -62,7 +62,7 @@ router.get("/", function (req, res) {
               data.unPublished = result;
               // start new
               let queryPublished = 'SELECT * FROM events WHERE published == 1;'
-              global.db.all(queryUnpublished,
+              global.db.all(queryPublished,
                 function (err, result) {
                   if (err) {
 
@@ -70,6 +70,7 @@ router.get("/", function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
                     // add dat from query
+                    console.log("Published: ", result)
                     data.published = result;
                     res.render("organizerHome.ejs", data)
                   }

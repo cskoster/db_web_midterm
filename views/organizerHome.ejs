@@ -50,7 +50,18 @@
         <div class="col-sm-12">
           <h2 id="published">Published events</h2>
           <!-- ################# -->
-          <h2>TITLE HEADING</h2>
+          <% published.forEach((data) => {%>
+          <div class="card">
+            <div class="card-header bg-primary text-white"><%=data.title%></div>
+            <div class="card-body bg-info text-white"><%=data.description%></div>
+            <div class="card-footer bg-secondary text-white">Last edited: <%=data.date_edited %></div>
+          </div>
+          <br />
+          <%});%>
+
+          <!-- ################# -->
+
+          <!-- <h2>TITLE HEADING</h2>
           <h5>Title description, Dec 7, 2020</h5>
           <div class="fakeimg">Fake Image</div>
           <p>Some text..</p>
@@ -58,8 +69,7 @@
             Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
             ullamco.
-          </p>
-          <!-- ################# -->
+          </p> -->
         </div>
 
         <div class="row">
