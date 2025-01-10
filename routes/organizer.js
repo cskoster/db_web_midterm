@@ -88,7 +88,7 @@ router.get("/events", function (req, res) {
         // ok works
         data.page = result[0]; // only one page with this name. db constraint
 
-        let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
+        let queryEvent = 'SELECT * FROM events WHERE published == 0;'
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -173,6 +173,7 @@ router.post("/edit_event", function (req, res) {
 
 
 router.post("/update_event", (req, res, next) => {
+
   if (!req.body.published) {
     console.log("null;")
     req.body.published = 0;
@@ -180,11 +181,9 @@ router.post("/update_event", (req, res, next) => {
 
   let date = Date().split(" GMT")[0];
   query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
-
   query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
 
   // Execute the query and send a confirmation message
-
   global.db.run(query, query_parameters,
     function (err) {
       if (err) {
@@ -199,40 +198,31 @@ router.post("/update_event", (req, res, next) => {
 
 
 
-
+//  Updates WORKS
 
 // router.post("/update_event", (req, res, next) => {
-//   let date = Date();
+//   if (!req.body.published) {
+//     console.log("null;")
+//     req.body.published = 0;
+//   }
 
-//   // if (req.body.publish) {
-//   //   console.log("PUBLISH: ", req.body.publish);
-
-//   //   query = "UPDATE events SET 'title'= ?,'desc'= ?, 'published' = ?, 'date_published' = ?,'date_edited'= ?  WHERE id= ?";
-//   //   query_parameters = [req.body.title, req.body.desc, 1, date, req.body.id];
-
-//   // } else {
-
-
-//   query = "UPDATE events SET 'title'= ?,'desc'= ?, 'date_edited'= ?   WHERE id= ?";
-//   query_parameters = [req.body.title, req.body.desc, req.body.id, date];
-//   // }
+//   let date = Date().split(" GMT")[0];
+//   query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
+//   query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
 
 //   // Execute the query and send a confirmation message
+
 //   global.db.run(query, query_parameters,
 //     function (err) {
 //       if (err) {
 //         next(err); //send the error on to the error handler
 //       } else {
 //         res.redirect("/organizer/events");
-//         next(); // TODO: need?
+//         //next(); // TODO: what do?
 //       }
 //     }
 //   );
 // });
-
-
-
-
 
 
 

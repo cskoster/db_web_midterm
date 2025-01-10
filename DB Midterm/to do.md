@@ -62,7 +62,8 @@
 
 - [x] make event table
 - [x] make add event form to edit events
-- [ ] update db from edit events
+- [x] update db from edit events
+- [ ] update db publish from editEvents
 
 - [ ] adding validation for siteSetting form for organizer home
 - [ ] adding validation for siteSetting form for  home page
