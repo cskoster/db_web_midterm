@@ -74,6 +74,25 @@
 at: oranizer.js line 126
 
 - [ ] error handeling: redirect to siteSetting with message
+- [ ] move appropriate items to Organizer Main
+- [ ] Title for the Events there ie: fishing, yoga
+- [ ] "create new event" button
+- [ ] published events
+- [ ] published events: title, date created,  date published
+- [ ] add "created on" date in event table
+- [ ] number/type of tickets
+- [ ] add tickets table
+- [ ] shareable link to attendee page associated with
+- [ ] delete button 
+- [ ] delte button removes from db
+- [ ] delte button reload the page
+- [ ] display draft events
+- [ ] draft date created, title, num each ticket type
+- [ ] draft has link to edit page
+- [ ] draft has publish button
+- [ ] draft has delete button
+
+at Site settings in instructions
 
 
 
