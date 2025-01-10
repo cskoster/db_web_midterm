@@ -31,7 +31,7 @@ const router = express.Router();
 
 // Organizer Home
 router.get("/", function (req, res) {
-  let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
 
   let data = {};
   // Execute the query and render the page with the results
@@ -70,8 +70,8 @@ router.get("/", function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
                     // add dat from query
-                    console.log("Published: ", result)
                     data.published = result;
+                    console.log(data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
