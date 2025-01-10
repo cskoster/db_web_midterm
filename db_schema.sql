@@ -46,12 +46,12 @@ CREATE TABLE IF NOT EXISTS site_settings (
   -- Heading of page ie. <h1>Org Page</h1>
   "heading" TEXT NOT NULL,
   -- Description of page  
-  "desc" TEXT NOT NULL,
+  "description" TEXT NOT NULL,
   -- Name of page ie. home, organizer_home, attendee_home
   "name" TEXT NOT NULL
 );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Home Page',
     'Welcome to the Home Page',
@@ -59,23 +59,31 @@ VALUES (
     'home_page'
   );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Organizer Home',
-    'Welcome to the Organizer Home Page',
-    'Link to Event Page, Draft Events, Publish event, Edit Event, and Site Settings',
+    'Fun Run Organizer Home Page',
+    'Weekly and Monthly Fun Run Organizer',
     'organizer_home_page'
   );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
+VALUES (
+    'Event Page',
+    'Welcome to the Event Page',
+    'View events',
+    'event_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Edit Event Page',
     'Welcome to the Edit Event Page',
-    'Edit some events',
+    'Edit event',
     'edit_event_page'
   );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Site Settings',
     'Welcome to the Site Settings Page',
@@ -83,7 +91,7 @@ VALUES (
     'site_settings_page'
   );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Attendee Home',
     'Welcome to the Attendee Home Page',
@@ -91,7 +99,7 @@ VALUES (
     'attendee_page'
   );
 
-INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Attendee Event Page',
     'Attendee Event Page',
@@ -103,7 +111,7 @@ VALUES (
 CREATE TABLE IF NOT EXISTS "events" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "title" TEXT NOT NULL,
-  "desc" TEXT NOT NULL,
+  "description" TEXT NOT NULL,
   -- 0 is FALSE, 1 is TRUE: https://www.sqlite.org/datatype3.html
   "published" INT,
   "date_edited" TEXT NOT NULL,
@@ -113,7 +121,7 @@ CREATE TABLE IF NOT EXISTS "events" (
 -- unpublished event
 INSERT INTO EVENTS (
     'title',
-    'desc',
+    'description',
     'published',
     'date_edited',
     'date_published'
@@ -122,8 +130,54 @@ VALUES (
     'Party',
     "Bob's bday",
     0,
-    'Thu Jan 09 2025 15:46:19 GMT+0200 (South Africa Standard Time)',
+    'Thu Jan 09 2025 15:46:19',
     NULL
+  );
+
+INSERT INTO EVENTS (
+    'title',
+    'description',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Wedding',
+    "Tommy and Beth get hitched",
+    0,
+    'Thu Jan 11 2025 15:47:11',
+    NULL
+  );
+
+-- Published events
+INSERT INTO EVENTS (
+    'title',
+    'description',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Run in the hills',
+    "12 Km run with hills",
+    1,
+    'Thu Jan 11 2025 15:47:11',
+    'Thu Jan 11 2025 15:47:11'
+  );
+
+INSERT INTO EVENTS (
+    'title',
+    'description',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Flat run on the beach',
+    "6km run in sand",
+    1,
+    'Thu Jan 13 2025 15:47:11',
+    'Thu Jan 13 2025 15:47:11'
   );
 
 COMMIT;

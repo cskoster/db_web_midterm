@@ -3,26 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=title%></title>
+    <title><%=page.title%></title>
   </head>
   <body>
-    <h1>Create and Edit Events</h1>
-    <h1><%=heading%></h1>
-    <p><%=desc%></p>
+    <h1>EDIT Events Page (remove later)</h1>
+    <h1><%=page.heading%></h1>
+    <p><%=page.description%></p>
 
-    <p>Create a new event</p>
-    <form action="create_event" method="post">
-      <p>
-        Title:
-        <input id="create_title" type="text" name="title" />
-      </p>
-      <p>
-        Description:
-        <input id="create_desc" type="text" name="desc" />
-      </p>
-      <button type="submit">Create a new event</button>
-    </form>
+    <div>
+      <p>Edit event</p>
+      <form action="update_event" method="post">
+        <p>
+          Title:
+          <input id="create_title" type="text" name="title" value="<%=event.title %>" />
+        </p>
+        <p>
+          Description:
+          <input id="create_desc" type="text" name="description" value="<%=event.description %>" />
+        </p>
 
-    <h3>Existing events:</h3>
+        <p>Edited last: <%=event.date_edited %></p>
+
+        <p>
+          Publish:
+          <input id="publish" type="checkbox" name="published" value="1" />
+        </p>
+        <input type="hidden" id="event_<%=event.id%>" name="id" value="<%=event.id%>" />
+        <button type="submit">Update event</button>
+      </form>
+    </div>
   </body>
 </html>

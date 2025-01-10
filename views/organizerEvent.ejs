@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=page.title%></title>
+  </head>
+  <body>
+    <h1>Events Page</h1>
+    <h1><%=page.heading%></h1>
+    <p><%=page.description%></p>
+
+    <div>
+      <p>Create a new event</p>
+      <form action="create_event" method="post">
+        <p>
+          Title:
+          <input id="create_title" type="text" name="title" />
+        </p>
+        <p>
+          Description:
+          <input id="create_desc" type="text" name="description" />
+        </p>
+        <button type="submit">Create a new event</button>
+      </form>
+    </div>
+
+    <div>
+      <h3>Events Not Published</h3>
+
+      <% event.forEach((data) => {%>
+      <form action="edit_event" method="post">
+        <div>
+          <h4><%=data.title%></h4>
+          <h4><%=data.description%></h4>
+
+          <p>Last edited: <%=data.date_edited %></p>
+          <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+          <button type="submit">Edit: <%=data.title %></button>
+        </div>
+      </form>
+      <%});%>
+    </div>
+  </body>
+</html>

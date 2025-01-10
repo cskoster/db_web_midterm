@@ -20,9 +20,9 @@
 - [x] add site settings form for edit event page
 - [x] remove old row from db
 - [x] populate site setting  edit event page form w data
-- [ ] add site settings form for Site Settings page
-- [ ] populate site setting  Site Settings page form w data
-- [ ] check Site Settings page updates
+- [x] add site settings form for Site Settings page
+- [x] populate site setting  Site Settings page form w data
+- [x] check Site Settings page updates
 - [x] remove old row from db
 - [x]  populate form data with current settings
 - [x] add site settings form for Attendee page
@@ -35,34 +35,35 @@
 - [x] check Attendee  Event page updates
 - [x]  populate form data with current settings
 
-- [ ] adding individual siteSetting form for home page
-- [ ] add route for siteSetting form for home page
-- [ ] test individual siteSetting form for home page
+- [x] adding individual siteSetting form for home page
+- [x] add route for siteSetting form for home page
+- [x] test individual siteSetting form for home page
 
-- [ ] adding individual siteSetting form for organizer home
-- [ ] add route for siteSetting form for organizer home
-- [ ] test individual siteSetting form for organizer home
+- [x] adding individual siteSetting form for organizer home
+- [x] add route for siteSetting form for organizer home
+- [x] test individual siteSetting form for organizer home
 
-- [ ] adding individual siteSetting form for organizer edit event page
-- [ ] add route for siteSetting form for organizer edit event page
-- [ ] test individual siteSetting form for organizer edit event page
+- [x] adding individual siteSetting form for organizer edit event page
+- [x] add route for siteSetting form for organizer edit event page
+- [x] test individual siteSetting form for organizer edit event page
 
-- [ ] adding individual siteSetting form for attendee page
-- [ ] add route for siteSetting form for attendee page
-- [ ] test individual siteSetting form for attendee page
+- [x] adding individual siteSetting form for attendee page
+- [x] add route for siteSetting form for attendee page
+- [x] test individual siteSetting form for attendee page
 
-- [ ] adding individual siteSetting form for attendee edit event page
-- [ ] add route for siteSetting form for attendee edit event page
-- [ ] test individual siteSetting form for attendee edit event page
+- [x] adding individual siteSetting form for attendee edit event page
+- [x] add route for siteSetting form for attendee edit event page
+- [x] test individual siteSetting form for attendee edit event page
 
-- [ ] adding individual siteSetting form for siteSetting page
-- [ ] add route for siteSetting form for siteSetting page
-- [ ] test individual siteSetting form for siteSetting page
+- [x] adding individual siteSetting form for siteSetting page
+- [x] add route for siteSetting form for siteSetting page
+- [x] test individual siteSetting form for siteSetting page
 
-HERE(above has problems. make more complicated)
 
 - [x] make event table
-- [ ] make add event form to edit events
+- [x] make add event form to edit events
+- [x] update db from edit events
+- [ ] update db publish from editEvents
 
 - [ ] adding validation for siteSetting form for organizer home
 - [ ] adding validation for siteSetting form for  home page
@@ -84,8 +85,35 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 
 
 - [ ] error handeling: redirect to siteSetting with message
+- [ ] move appropriate items to Organizer Main
+- [ ] Title for the Events there ie: fishing, yoga
+- [ ] "create new event" button
+- [ ] published events
+- [ ] published events: title, date created,  date published
+- [ ] add "created on" date in event table
+- [ ] number/type of tickets
+- [ ] add tickets table
+- [ ] shareable link to attendee page associated with
+- [ ] delete button 
+- [ ] delte button removes from db
+- [ ] delte button reload the page
+- [ ] display draft events
+- [ ] draft date created, title, num each ticket type
+- [ ] draft has link to edit page
+- [ ] draft has publish button
+- [ ] draft has delete button
+
+at Site settings in instructions
+
+Bootstrap:
+https://www.geeksforgeeks.org/how-to-add-bootstrap-in-a-project/
 
 
 
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
+
+
+https://www.reddit.com/r/node/comments/qrv1qd/can_i_send_more_than_one_dataset_to_an_ejs_file/
+
+Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
