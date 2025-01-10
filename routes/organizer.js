@@ -171,8 +171,21 @@ router.post("/edit_event", function (req, res) {
 
 
 router.post("/update_event", (req, res, next) => {
-  query = "UPDATE events SET 'title'= ?,'desc'= ? WHERE id= ?";
-  query_parameters = [req.body.title, req.body.desc, req.body.id];
+
+  if (req.body.publish) {
+    console.log("xxxx: ", req.body.publish);
+    let pub_date = Date();
+    query = "UPDATE events SET 'title'= ?,'desc'= ?, 'published' = ?, 'date_published' = ?  WHERE id= ?";
+    query_parameters = [req.body.title, req.body.desc, 1, pub_date, req.body.id];
+
+  } else {
+    query = "UPDATE events SET 'title'= ?,'desc'= ?   WHERE id= ?";
+    query_parameters = [req.body.title, req.body.desc, req.body.id];
+  }
+
+
+
+
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
     function (err) {
