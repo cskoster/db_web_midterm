@@ -37,7 +37,7 @@ router.get("/siteSettings", function (req, res) {
   global.db.all(query,
     function (err, result) {
       if (err) {
-        console.log(err);
+        //console.log(err);
         // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
       } else {
@@ -55,7 +55,7 @@ router.get("/siteSettings", function (req, res) {
 //  NOTE way to do this is below
 router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
-  console.log("df : ", req.body.name)
+  // console.log("df : ", req.body.name)
   query_parameters = [req.body.heading, req.body.desc, req.body.name];
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -74,7 +74,7 @@ router.post("/update_site_settings", (req, res, next) => {
 // Organizer Edit event Home
 router.get("/events", function (req, res) {
   let query = "SELECT title, desc, heading FROM site_settings where name='event_page'";
-  let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
+
   let data = {};
   // Execute the query and render the page with the results
   global.db.all(query,
@@ -88,6 +88,7 @@ router.get("/events", function (req, res) {
         // ok works
         data.page = result[0]; // only one page with this name. db constraint
 
+        let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -98,7 +99,6 @@ router.get("/events", function (req, res) {
 
               // ok works
               data.event = result;
-              //console.log(data);
               res.render("organizerEvent.ejs", data)
             }
           }
@@ -171,20 +171,20 @@ router.post("/edit_event", function (req, res) {
 
 
 router.post("/update_event", (req, res, next) => {
+  let date = Date();
 
-  if (req.body.publish) {
-    console.log("xxxx: ", req.body.publish);
-    let pub_date = Date();
-    query = "UPDATE events SET 'title'= ?,'desc'= ?, 'published' = ?, 'date_published' = ?  WHERE id= ?";
-    query_parameters = [req.body.title, req.body.desc, 1, pub_date, req.body.id];
+  // if (req.body.publish) {
+  //   console.log("PUBLISH: ", req.body.publish);
 
-  } else {
-    query = "UPDATE events SET 'title'= ?,'desc'= ?   WHERE id= ?";
-    query_parameters = [req.body.title, req.body.desc, req.body.id];
-  }
+  //   query = "UPDATE events SET 'title'= ?,'desc'= ?, 'published' = ?, 'date_published' = ?,'date_edited'= ?  WHERE id= ?";
+  //   query_parameters = [req.body.title, req.body.desc, 1, date, req.body.id];
+
+  // } else {
 
 
-
+  query = "UPDATE events SET 'title'= ?,'desc'= ?, 'date_edited'= ?   WHERE id= ?";
+  query_parameters = [req.body.title, req.body.desc, req.body.id, date];
+  // }
 
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -193,7 +193,7 @@ router.post("/update_event", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
         res.redirect("/organizer/events");
-        //next(); // TODO: need?
+        next(); // TODO: need?
       }
     }
   );

@@ -26,10 +26,16 @@
     </div>
 
     <div>
+      <h3>Events Not Published</h3>
+
       <% event.forEach((data) => {%>
+      <!-- <form action="edit_event" method="post"> -->
       <form action="edit_event" method="post">
         <div>
-          <%=data.title%>
+          <h4><%=data.title%></h4>
+          <h4><%=data.desc%></h4>
+
+          <p>Last edited: <%=data.date_edited %></p>
           <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
           <button type="submit">Edit: <%=data.title %></button>
         </div>

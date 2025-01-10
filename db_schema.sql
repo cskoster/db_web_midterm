@@ -71,13 +71,13 @@ INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
     'Event Page',
     'Welcome to the Event Page',
-    'Edit some events',
+    'View events',
     'event_page'
   );
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
-    'Edit Event',
+    'Edit Event Page',
     'Welcome to the Edit Event Page',
     'Edit event',
     'edit_event_page'
