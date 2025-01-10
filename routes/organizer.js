@@ -39,6 +39,8 @@ router.get("/siteSettings", function (req, res) {
       if (err) {
         //console.log(err);
         // do something if error from lab: res.redirect("/");
+
+        // This happens if there is no database
         next(err); //send the error on to the error handler
       } else {
         res.render("siteSettings.ejs", { formData: result });
