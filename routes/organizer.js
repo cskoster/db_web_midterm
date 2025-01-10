@@ -12,9 +12,28 @@ const express = require("express");
 const router = express.Router();
 
 // Organizer Home
-router.get("/", function (req, res) {
-  let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
+// router.get("/", function (req, res) {
+//   let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
 
+//   // Execute the query and render the page with the results
+//   global.db.all(query,
+//     function (err, result) {
+//       if (err) {
+
+//         // do something if error from lab: res.redirect("/");
+//         next(err); //send the error on to the error handler
+//       } else {
+//         res.render("organizerHome.ejs", result[0])
+//       }
+//     }
+//   );
+// });
+
+// Organizer Home
+router.get("/", function (req, res) {
+  let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
+
+  let data = {};
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
@@ -23,10 +42,29 @@ router.get("/", function (req, res) {
         // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
       } else {
-        res.render("organizerHome.ejs", result[0])
+
+        // ok works
+        data.page = result[0]; // only one page with this name. db constraint
+
+        let queryEvent = 'SELECT * FROM events WHERE published == 0;'
+        global.db.all(queryEvent,
+          function (err, result) {
+            if (err) {
+
+              // do something if error from lab: res.redirect("/");
+              next(err); //send the error on to the error handler
+            } else {
+
+              // ok works
+              data.event = result;
+              res.render("organizerHome.ejs", data)
+            }
+          }
+        ); // END second query
       }
     }
   );
+
 });
 
 
@@ -74,42 +112,42 @@ router.post("/update_site_settings", (req, res, next) => {
 
 
 // Organizer Edit event Home
-router.get("/events", function (req, res) {
-  let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
+// router.get("/events", function (req, res) {
+//   let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
 
-  let data = {};
-  // Execute the query and render the page with the results
-  global.db.all(query,
-    function (err, result) {
-      if (err) {
+//   let data = {};
+//   // Execute the query and render the page with the results
+//   global.db.all(query,
+//     function (err, result) {
+//       if (err) {
 
-        // do something if error from lab: res.redirect("/");
-        next(err); //send the error on to the error handler
-      } else {
+//         // do something if error from lab: res.redirect("/");
+//         next(err); //send the error on to the error handler
+//       } else {
 
-        // ok works
-        data.page = result[0]; // only one page with this name. db constraint
+//         // ok works
+//         data.page = result[0]; // only one page with this name. db constraint
 
-        let queryEvent = 'SELECT * FROM events WHERE published == 0;'
-        global.db.all(queryEvent,
-          function (err, result) {
-            if (err) {
+//         let queryEvent = 'SELECT * FROM events WHERE published == 0;'
+//         global.db.all(queryEvent,
+//           function (err, result) {
+//             if (err) {
 
-              // do something if error from lab: res.redirect("/");
-              next(err); //send the error on to the error handler
-            } else {
+//               // do something if error from lab: res.redirect("/");
+//               next(err); //send the error on to the error handler
+//             } else {
 
-              // ok works
-              data.event = result;
-              res.render("organizerEvent.ejs", data)
-            }
-          }
-        ); // END second query
-      }
-    }
-  );
+//               // ok works
+//               data.event = result;
+//               res.render("organizerEvent.ejs", data)
+//             }
+//           }
+//         ); // END second query
+//       }
+//     }
+//   );
 
-});
+// });
 
 router.post("/create_event", (req, res, next) => {
   let dateEdited = Date().split(" GMT")[0];

@@ -103,6 +103,9 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [ ] draft has publish button
 - [ ] draft has delete button
 
+Bootstrap template stuff:
+- [ ] add title and heading and description back to organizerHome
+
 at Site settings in instructions
 
 Bootstrap:
