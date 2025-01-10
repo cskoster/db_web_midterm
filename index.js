@@ -29,7 +29,7 @@ global.db = new sqlite3.Database('./database.db', function (err) {
 
 // Home Page
 app.get("/", function (req, res) {
-  let query = "SELECT title, desc, heading FROM site_settings where name='home_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='home_page'";
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {

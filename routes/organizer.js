@@ -56,7 +56,7 @@ router.get("/siteSettings", function (req, res) {
 router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'description'= ? WHERE name= ?";
   // console.log("df : ", req.body.name)
-  query_parameters = [req.body.heading, req.body.desc, req.body.name];
+  query_parameters = [req.body.heading, req.body.description, req.body.name];
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
     function (err) {
@@ -112,7 +112,7 @@ router.get("/events", function (req, res) {
 router.post("/create_event", (req, res, next) => {
   let dateEdited = new Date();
   let query = "INSERT INTO events (title, description, published, date_edited,date_published) VALUES (?,?,?,?,?)";
-  query_parameters = [req.body.title, req.body.desc, "NULL", dateEdited, "NULL"];
+  query_parameters = [req.body.title, req.body.description, "NULL", dateEdited, "NULL"];
 
   // // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -177,7 +177,7 @@ router.post("/update_event", (req, res, next) => {
     req.body.publish = 0;
   }
 
-  console.log("UPDATE: ", req.body.title, "desc: ", req.body.desc, " pub: ", req.body.published, "id: ", req.body.id);
+  console.log("UPDATE: ", req.body.title, "description: ", req.body.description, " pub: ", req.body.published, "id: ", req.body.id);
   query = "UPDATE events SET 'title'= ?,'description'= ?,  'published'=? WHERE id= ?";
 
   //query_parameters = [r];
