@@ -67,10 +67,13 @@
             <h2 id="unpublished">UnPublished</h2>
             <!-- ################# -->
             <% event.forEach((data) => {%>
-            <h2><%=data.title%></h2>
-            <h5><%=data.description%></h5>
-            <!-- <div class="fakeimg">Fake Image</div> -->
-            <p>Last edited: <%=data.date_edited %></p>
+            <div class="card">
+              <div class="card-header bg-primary text-white"><%=data.title%></div>
+              <div class="card-body bg-info text-white"><%=data.description%></div>
+              <div class="fakeimg">Fake Image</div>
+              <div class="card-footer">Last edited: <%=data.date_edited %></div>
+            </div>
+            <br />
             <%});%>
             <!-- ################# -->
 
