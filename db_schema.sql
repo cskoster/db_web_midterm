@@ -62,8 +62,8 @@ VALUES (
 INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Organizer Home',
-    'Welcome to the Organizer Home Page',
-    'Link to Event Page, Draft Events, Publish event, Edit Event, and Site Settings',
+    'Fun Run Organizer Home Page',
+    'Weekly and Monthly Fun Run Organizer',
     'organizer_home_page'
   );
 
