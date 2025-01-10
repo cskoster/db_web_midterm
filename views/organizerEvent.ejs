@@ -8,7 +8,7 @@
   <body>
     <h1>Events Page</h1>
     <h1><%=page.heading%></h1>
-    <p><%=page.desc%></p>
+    <p><%=page.description%></p>
 
     <div>
       <p>Create a new event</p>
@@ -33,7 +33,7 @@
       <form action="edit_event" method="post">
         <div>
           <h4><%=data.title%></h4>
-          <h4><%=data.desc%></h4>
+          <h4><%=data.description%></h4>
 
           <p>Last edited: <%=data.date_edited %></p>
           <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />

@@ -73,7 +73,7 @@ router.post("/update_site_settings", (req, res, next) => {
 
 // Organizer Edit event Home
 router.get("/events", function (req, res) {
-  let query = "SELECT title, desc, heading FROM site_settings where name='event_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
 
   let data = {};
   // Execute the query and render the page with the results
