@@ -88,13 +88,9 @@ router.get("/siteSettings", function (req, res) {
 
 
 
-// // Site Edit Event
-// router.get("/editEvent", function (req, res) {
-//   res.render("organizerEditEvent.ejs")
-// });
-
 // Organizer Edit event Home
-router.get("/editEvent", function (req, res) {
+// router.get("/editEvent", function (req, res) {
+router.get("/events", function (req, res) {
   let query = "SELECT title, desc, heading FROM site_settings where name='edit_event_page'";
   let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
   let data = {};
@@ -109,11 +105,9 @@ router.get("/editEvent", function (req, res) {
 
         // ok works
         data.page = result[0];
-        data.text = "Hi there";
 
         // TODO: better way?
         // This is messy and there should be a better way.
-        // Treating asynchronous calls synchronously.
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -125,14 +119,10 @@ router.get("/editEvent", function (req, res) {
               // ok works
               data.event = result;
               console.log(data);
-              res.render("organizerEditEvent.ejs", data)
+              res.render("organizerEvent.ejs", data)
             }
           }
-        );
-
-
-
-
+        ); // END second query
       }
     }
   );
@@ -140,18 +130,9 @@ router.get("/editEvent", function (req, res) {
 });
 
 router.post("/create_event", (req, res, next) => {
-  // query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
-  // console.log("df : ", req.body.name)
-  // query_parameters = [req.body.heading, req.body.desc, req.body.name];
-
-
   let dateEdited = new Date();
   let query = "INSERT INTO events (title, desc, published, date_edited,date_published) VALUES (?,?,?,?,?)";
   query_parameters = [req.body.title, req.body.desc, "NULL", dateEdited, "NULL"];
-
-  // HERE HERE HERE comment out and continue with the query for
-  // a new event
-
 
   // // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -159,13 +140,15 @@ router.post("/create_event", (req, res, next) => {
       if (err) {
         next(err); //send the error on to the error handler
       } else {
-        //res.send(`New data inserted @ id ${this.lastID}!`);
-        res.redirect("/organizer/editEvent");
+        res.redirect("/organizer/events");
         //next();
       }
     }
   );
 });
+
+
+
 
 
 module.exports = router;
