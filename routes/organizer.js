@@ -39,27 +39,6 @@ router.get("/", function (req, res) {
 });
 
 
-// TODO: passing the tablename is not so good, as we write to it
-// ALTERNATE: hard code the wole thing so we dont need to pass the table name
-// then need to write 6 forms, 6 blocks like below.
-router.post("/update_site_settings", (req, res, next) => {
-  query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
-  console.log("df : ", req.body.name)
-  query_parameters = [req.body.heading, req.body.desc, req.body.name];
-  // Execute the query and send a confirmation message
-  global.db.run(query, query_parameters,
-    function (err) {
-      if (err) {
-        next(err); //send the error on to the error handler
-      } else {
-        //res.send(`New data inserted @ id ${this.lastID}!`);
-        res.redirect("/organizer/siteSettings");
-        //next();
-      }
-    }
-  );
-});
-
 
 router.get("/siteSettings", function (req, res) {
   let query = " SELECT title, desc, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
@@ -87,11 +66,32 @@ router.get("/siteSettings", function (req, res) {
 });
 
 
+// TODO: passing the tablename is not so good, as we write to it
+// ALTERNATE: hard code the wole thing so we dont need to pass the table name
+// then need to write 6 forms, 6 blocks like below.
+router.post("/update_site_settings", (req, res, next) => {
+  query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
+  console.log("df : ", req.body.name)
+  query_parameters = [req.body.heading, req.body.desc, req.body.name];
+  // Execute the query and send a confirmation message
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        next(err); //send the error on to the error handler
+      } else {
+        //res.send(`New data inserted @ id ${this.lastID}!`);
+        res.redirect("/organizer/siteSettings");
+        //next();
+      }
+    }
+  );
+});
+
 
 // Organizer Edit event Home
 // router.get("/editEvent", function (req, res) {
 router.get("/events", function (req, res) {
-  let query = "SELECT title, desc, heading FROM site_settings where name='edit_event_page'";
+  let query = "SELECT title, desc, heading FROM site_settings where name='event_page'";
   let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
   let data = {};
   // Execute the query and render the page with the results
@@ -147,7 +147,30 @@ router.post("/create_event", (req, res, next) => {
   );
 });
 
+// Edit an event
+// load form data, put in page
+// post to edit_event
+// put in db
+// redirect to events page
 
+router.get("/edit_event", (req, res, next) => {
+  // let dateEdited = new Date();
+  // let query = "INSERT INTO events (title, desc, published, date_edited,date_published) VALUES (?,?,?,?,?)";
+  // query_parameters = [req.body.title, req.body.desc, "NULL", dateEdited, "NULL"];
+  console.log("got here");
+
+  // // Execute the query and send a confirmation message
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        next(err); //send the error on to the error handler
+      } else {
+        res.redirect("/organizer/edit_events");
+        //next();
+      }
+    }
+  );
+});
 
 
 
