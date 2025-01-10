@@ -43,21 +43,41 @@ router.get("/", function (req, res) {
         next(err); //send the error on to the error handler
       } else {
 
-        // ok works
+        // add "page" info to template object
         data.page = result[0]; // only one page with this name. db constraint
 
-        let queryEvent = 'SELECT * FROM events WHERE published == 0;'
-        global.db.all(queryEvent,
+        /* 
+          NOTE: this could be done by "SELECT * FROM events;"
+          However, this would put login in the view in violateion of
+          Separation of concern (SOC).
+        */
+        let queryUnpublished = 'SELECT * FROM events WHERE published == 0;'
+        global.db.all(queryUnpublished,
           function (err, result) {
             if (err) {
 
               // do something if error from lab: res.redirect("/");
               next(err); //send the error on to the error handler
             } else {
+              data.unPublished = result;
+              // start new
+              let queryPublished = 'SELECT * FROM events WHERE published == 1;'
+              global.db.all(queryUnpublished,
+                function (err, result) {
+                  if (err) {
 
-              // ok works
-              data.event = result;
-              res.render("organizerHome.ejs", data)
+                    // do something if error from lab: res.redirect("/");
+                    next(err); //send the error on to the error handler
+                  } else {
+                    // add dat from query
+                    data.published = result;
+                    res.render("organizerHome.ejs", data)
+                  }
+                });
+              // end new
+              // add "event" to template object
+
+              // res.render("organizerHome.ejs", data)
             }
           }
         ); // END second query
