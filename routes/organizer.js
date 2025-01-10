@@ -137,17 +137,17 @@ router.get("/editEvent", function (req, res) {
     }
   );
 
-  // res.render("organizerEditEvent.ejs", data)
-
-
 });
 
 router.post("/create_event", (req, res, next) => {
   // query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
   // console.log("df : ", req.body.name)
   // query_parameters = [req.body.heading, req.body.desc, req.body.name];
+
+
   let dateEdited = new Date();
-  query = "INSERT INTO event ";
+  let query = "INSERT INTO events (title, desc, published, date_edited,date_published) VALUES (?,?,?,?,?)";
+  query_parameters = [req.body.title, req.body.desc, "NULL", dateEdited, "NULL"];
 
   // HERE HERE HERE comment out and continue with the query for
   // a new event
@@ -160,7 +160,7 @@ router.post("/create_event", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
         //res.send(`New data inserted @ id ${this.lastID}!`);
-        res.redirect("/organizer/siteSettings");
+        res.redirect("/organizer/editEvent");
         //next();
       }
     }
