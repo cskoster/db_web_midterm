@@ -173,29 +173,28 @@ router.post("/edit_event", function (req, res) {
 
 
 router.post("/update_event", (req, res, next) => {
-  // query = "UPDATE site_settings SET 'heading'= ?,'desc'= ? WHERE name= ?";
-  if (!req.body.publish) {
+  if (!req.body.published) {
     console.log("null;")
-    req.body.publish = 0;
+    req.body.published = 0;
   }
 
-  console.log("UPDATE: ", req.body.title, "description: ", req.body.description, " pub: ", req.body.published, "id: ", req.body.id);
-  query = "UPDATE events SET 'title'= ?,'description'= ?,  'published'=? WHERE id= ?";
+  let date = Date().split(" GMT")[0];
+  query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
 
-  //query_parameters = [r];
+  query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
 
   // Execute the query and send a confirmation message
 
-  // global.db.run(query, query_parameters,
-  //   function (err) {
-  //     if (err) {
-  //       next(err); //send the error on to the error handler
-  //     } else {
-  //       res.redirect("/organizer/siteSettings");
-  //       //next(); // TODO: what do?
-  //     }
-  //   }
-  // );
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        next(err); //send the error on to the error handler
+      } else {
+        res.redirect("/organizer/events");
+        //next(); // TODO: what do?
+      }
+    }
+  );
 });
 
 

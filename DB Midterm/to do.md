@@ -20,9 +20,9 @@
 - [x] add site settings form for edit event page
 - [x] remove old row from db
 - [x] populate site setting  edit event page form w data
-- [ ] add site settings form for Site Settings page
-- [ ] populate site setting  Site Settings page form w data
-- [ ] check Site Settings page updates
+- [x] add site settings form for Site Settings page
+- [x] populate site setting  Site Settings page form w data
+- [x] check Site Settings page updates
 - [x] remove old row from db
 - [x]  populate form data with current settings
 - [x] add site settings form for Attendee page
@@ -35,34 +35,34 @@
 - [x] check Attendee  Event page updates
 - [x]  populate form data with current settings
 
-- [ ] adding individual siteSetting form for home page
-- [ ] add route for siteSetting form for home page
-- [ ] test individual siteSetting form for home page
+- [x] adding individual siteSetting form for home page
+- [x] add route for siteSetting form for home page
+- [x] test individual siteSetting form for home page
 
-- [ ] adding individual siteSetting form for organizer home
-- [ ] add route for siteSetting form for organizer home
-- [ ] test individual siteSetting form for organizer home
+- [x] adding individual siteSetting form for organizer home
+- [x] add route for siteSetting form for organizer home
+- [x] test individual siteSetting form for organizer home
 
-- [ ] adding individual siteSetting form for organizer edit event page
-- [ ] add route for siteSetting form for organizer edit event page
-- [ ] test individual siteSetting form for organizer edit event page
+- [x] adding individual siteSetting form for organizer edit event page
+- [x] add route for siteSetting form for organizer edit event page
+- [x] test individual siteSetting form for organizer edit event page
 
-- [ ] adding individual siteSetting form for attendee page
-- [ ] add route for siteSetting form for attendee page
-- [ ] test individual siteSetting form for attendee page
+- [x] adding individual siteSetting form for attendee page
+- [x] add route for siteSetting form for attendee page
+- [x] test individual siteSetting form for attendee page
 
-- [ ] adding individual siteSetting form for attendee edit event page
-- [ ] add route for siteSetting form for attendee edit event page
-- [ ] test individual siteSetting form for attendee edit event page
+- [x] adding individual siteSetting form for attendee edit event page
+- [x] add route for siteSetting form for attendee edit event page
+- [x] test individual siteSetting form for attendee edit event page
 
-- [ ] adding individual siteSetting form for siteSetting page
-- [ ] add route for siteSetting form for siteSetting page
-- [ ] test individual siteSetting form for siteSetting page
+- [x] adding individual siteSetting form for siteSetting page
+- [x] add route for siteSetting form for siteSetting page
+- [x] test individual siteSetting form for siteSetting page
 
-HERE(above has problems. make more complicated)
 
 - [x] make event table
-- [ ] make add event form to edit events
+- [x] make add event form to edit events
+- [ ] update db from edit events
 
 - [ ] adding validation for siteSetting form for organizer home
 - [ ] adding validation for siteSetting form for  home page
