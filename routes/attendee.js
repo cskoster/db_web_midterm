@@ -17,7 +17,7 @@ const router = express.Router();
 
 // Attendee Home
 router.get("/", function (req, res) {
-  let query = "SELECT title, desc, heading FROM site_settings where name='attendee_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='attendee_page'";
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
@@ -33,7 +33,7 @@ router.get("/", function (req, res) {
 
 // Attendee event
 router.get("/event", function (req, res) {
-  let query = "SELECT title, desc, heading FROM site_settings where name='attendee_events_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
