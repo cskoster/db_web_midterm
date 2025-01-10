@@ -96,8 +96,8 @@ router.get("/siteSettings", function (req, res) {
 // Organizer Edit event Home
 router.get("/editEvent", function (req, res) {
   let query = "SELECT title, desc, heading FROM site_settings where name='edit_event_page'";
-
-
+  let queryEvent = 'SELECT * FROM events WHERE published not NULL;'
+  let data = {};
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
@@ -108,16 +108,36 @@ router.get("/editEvent", function (req, res) {
       } else {
 
         // ok works
-        data = {
-          page: result[0],
-          text: "Hi there"
-        }
-        res.render("organizerEditEvent.ejs", data)
+        data.page = result[0];
+        data.text = "Hi there";
+
+        // TODO: better way?
+        // This is messy and there should be a better way.
+        // Treating asynchronous calls synchronously.
+        global.db.all(queryEvent,
+          function (err, result) {
+            if (err) {
+
+              // do something if error from lab: res.redirect("/");
+              next(err); //send the error on to the error handler
+            } else {
+
+              // ok works
+              data.event = result;
+              console.log(data);
+              res.render("organizerEditEvent.ejs", data)
+            }
+          }
+        );
+
+
+
+
       }
     }
   );
 
-
+  // res.render("organizerEditEvent.ejs", data)
 
 
 });

@@ -126,4 +126,19 @@ VALUES (
     NULL
   );
 
+INSERT INTO EVENTS (
+    'title',
+    'desc',
+    'published',
+    'date_edited',
+    'date_published'
+  )
+VALUES (
+    'Wedding',
+    "Tommy and Beth get hitched",
+    0,
+    'Thu Jan 11 2025 15:47:11 GMT+0200 (South Africa Standard Time)',
+    NULL
+  );
+
 COMMIT;
