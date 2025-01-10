@@ -12,16 +12,17 @@
 
     <div>
       <p>Edit event</p>
-      <form action="create_event" method="post">
+      <form action="update_event" method="post">
         <p>
           Title:
-          <input id="create_title" type="text" name="title" />
+          <input id="create_title" type="text" name="title" value="<%=event.title %>" />
         </p>
         <p>
           Description:
-          <input id="create_desc" type="text" name="desc" />
+          <input id="create_desc" type="text" name="desc" value="<%=event.desc %>" />
         </p>
         <button type="submit">Update event</button>
+        <input type="hidden" id="event_<%=event.id%>" name="id" value="<%=event.id%>" />
       </form>
     </div>
   </body>
