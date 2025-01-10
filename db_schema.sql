@@ -77,6 +77,14 @@ VALUES (
 
 INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
 VALUES (
+    'Edit Event',
+    'Welcome to the Edit Event Page',
+    'Edit event',
+    'edit_event_page'
+  );
+
+INSERT INTO site_settings ('title', 'heading', 'desc', 'name')
+VALUES (
     'Site Settings',
     'Welcome to the Site Settings Page',
     'Change the Title, main Heading, and Descriptions of pages',
