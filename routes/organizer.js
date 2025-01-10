@@ -110,7 +110,9 @@ router.get("/events", function (req, res) {
 });
 
 router.post("/create_event", (req, res, next) => {
-  let dateEdited = new Date();
+  let dateEdited = Date().split(" GMT")[0];
+
+
   let query = "INSERT INTO events (title, description, published, date_edited,date_published) VALUES (?,?,?,?,?)";
   query_parameters = [req.body.title, req.body.description, "NULL", dateEdited, "NULL"];
 

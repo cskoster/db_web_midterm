@@ -130,7 +130,7 @@ VALUES (
     'Party',
     "Bob's bday",
     0,
-    'Thu Jan 09 2025 15:46:19 GMT+0200 (South Africa Standard Time)',
+    'Thu Jan 09 2025 15:46:19',
     NULL
   );
 
@@ -145,7 +145,7 @@ VALUES (
     'Wedding',
     "Tommy and Beth get hitched",
     0,
-    'Thu Jan 11 2025 15:47:11 GMT+0200 (South Africa Standard Time)',
+    'Thu Jan 11 2025 15:47:11',
     NULL
   );
 
