@@ -59,9 +59,12 @@
           <% published.forEach((data) => {%>
           <div class="card">
             <div class="card-header bg-primary text-white"><%=data.title%></div>
+            <div class="card-body bg-info text-black"><%=data.date_event%></div>
+            <div class="card-body bg-info text-black"><%=data.description%></div>
 
-            <div class="card-body bg-info text-white"><%=data.date_event%></div>
-            <div class="card-body bg-info text-white"><%=data.description%></div>
+            <div class="card-body bg-info text-black"><b>Total Tickets: <%=data.num_tickets%></b></div>
+            <div class="card-body bg-info text-black"><b>Total Tickets Sold: <%=data.num_tickets_sold%></b></div>
+
             <div class="card-footer bg-secondary text-white">Published On:: <%=data.date_published %></div>
           </div>
           <br />
