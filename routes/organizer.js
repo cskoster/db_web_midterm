@@ -54,7 +54,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    // console.log(data);
+                    console.log(data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -214,7 +214,11 @@ router.post("/update_event", (req, res, next) => {
     req.body.published = 0;
   }
 
-  let date = Date().split(" GMT")[0];
+  let date = new Date();
+  date = formatDate(dateEdited);
+  // let date = Date().split(" GMT")[0];
+
+
   query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
   query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
 
