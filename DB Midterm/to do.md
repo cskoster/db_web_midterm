@@ -106,9 +106,9 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [ ] ■ Remove the event from the database  
 - [ ] ■ Reload the page to display the updated information  
 - [ ] ● It should display a dynamically populated list of draft events  
-- [ ] ○ The list should display useful information about the events including the title, date,  
-- [ ] when they were created and published and the number of each type of ticket for  
-- [ ] sale  
+- [x] ○ The list should display useful information about the events including the title, date,  
+- [x] when they were created and published and the number of each type of ticket for  
+- [x] sale  
 - [ ] ○ Each event in the list should be accompanied by a link which points to its edit page  
 - [ ] ○ For each event there should be a publish button. When pressed this should:  
 - [ ] ■ Update the event’s state from draft to published  
