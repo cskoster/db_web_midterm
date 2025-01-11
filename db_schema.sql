@@ -137,10 +137,14 @@ INSERT INTO EVENTS (
 VALUES (
     'Party',
     "Bob's bday",
-    'Thu Jan 1 2025 15:46:19',
-    'Thu Jan 14 2025 15:46:19',
+    -- created
+    '2025-01-29T10:30',
+    -- event date
+    '2025-11-29T10:30',
     0,
-    'Thu Jan 09 2025 15:46:19',
+    -- date_edited
+    '2025-01-29T10:30',
+    -- date_published
     NULL,
     100,
     12
@@ -160,10 +164,14 @@ INSERT INTO EVENTS (
 VALUES (
     'Wedding',
     "Tommy and Beth get hitched",
-    'Thu Jan 2 2025 15:46:19',
-    'Thu Jan 14 2025 15:46:19',
+    -- created
+    '2025-01-29T10:30',
+    -- event date
+    '2025-11-29T10:30',
     0,
-    'Thu Jan 11 2025 15:47:11',
+    -- date_edited
+    '2025-01-29T10:30',
+    -- date_published
     NULL,
     200,
     20
@@ -184,11 +192,15 @@ INSERT INTO EVENTS (
 VALUES (
     'Run in the hills',
     "12 Km run with hills",
-    'Thu Jan 3 2025 15:46:19',
-    'Thu Jan 14 2025 15:46:19',
+    -- created
+    '2025-01-29T10:30',
+    -- event date
+    '2025-11-29T10:30',
     1,
-    'Thu Jan 11 2025 15:47:11',
-    'Thu Jan 11 2025 15:47:11',
+    -- date_edited
+    '2025-01-29T10:30',
+    -- date_published
+    '2025-01-29T10:30',
     300,
     0
   );
@@ -207,11 +219,15 @@ INSERT INTO EVENTS (
 VALUES (
     'Flat run on the beach',
     "6km run in sand",
-    'Thu Jan 4 2025 15:46:19',
-    'Thu Jan 14 2025 15:46:19',
+    -- created
+    '2025-01-29T10:30',
+    -- event date
+    '2025-11-29T10:30',
     1,
-    'Thu Jan 13 2025 15:47:11',
-    'Thu Jan 13 2025 15:47:11',
+    -- date_edited
+    '2025-01-29T10:30',
+    -- date_published 
+    '2025-01-29T10:30',
     400,
     0
   );
