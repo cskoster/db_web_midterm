@@ -27,23 +27,31 @@
       </div>
     </nav>
 
-    <div class="container mt-3">
-      <form action="create_event" method="post">
-        <div class="mb-3">
-          <label for="title">Event Title</label>
-          <input type="text" class="form-control" id="create_title" placeholder="New title" name="title" />
-        </div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- ################# -->
 
-        <div class="mb-3 mt-3">
-          <label for="description">Description:</label>
-          <textarea class="form-control" rows="5" id="create_desc" name="description"></textarea>
+            <div class="card">
+              <div class="card-header bg-primary text-white"><%=event.title%></div>
+              <div class="card-body bg-info text-black"><%=event.date_event%></div>
+              <div class="clearfix bg-info">
+                <div class="card-body bg-info text-black float-start"><%=event.description%></div>
+                <div class="card-body bg-info text-black float-end"><b>Total Tickets: <%=event.num_tickets%></b></div>
+                <div class="card-body bg-info text-black float-end">
+                  <b>Total Tickets Sold: <%=event.num_tickets_sold%></b>
+                </div>
+              </div>
 
-          <label for="date">Event Date</label>
-          <input type="datetime-local" id="date_event" name="date_event" />
-          <input type="text" class="form-control" id="num_tickets" placeholder="Number of Tickets" name="num_tickets" />
+              <div class="card-footer bg-secondary text-white">Last edited: <%=event.date_edited %></div>
+            </div>
+            <br />
+
+            <!-- ################# -->
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Create new event</button>
-      </form>
+      </div>
     </div>
   </body>
 </html>

@@ -52,7 +52,10 @@ router.get("/", function (req, res) {
 // router.get("/event/:event_id", function (req, res) {
 router.get('/event/:event_id', function (req, res) {
   let data = {};
-  let event_id = req.params.event_id;
+
+  // there is a ':' in front. TODO: why?
+  let event_id = req.params.event_id[1];
+
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
   // Execute the query and render the page with the results
   global.db.all(query,
@@ -65,7 +68,10 @@ router.get('/event/:event_id', function (req, res) {
         data.page = result[0];
         // start new
 
-        let queryEvent = 'SELECT * FROM events WHERE id == ' + event_id + ';';
+        // console.log(event_id)
+        let queryEvent = 'SELECT * FROM events WHERE id == "' + event_id + '";';
+
+        // console.log("Q: ", queryEvent);
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -74,8 +80,12 @@ router.get('/event/:event_id', function (req, res) {
               next(err); //send the error on to the error handler
             } else {
               // add dat from query
-              data.published = result;
-              console.log(data);
+
+              // only one row, id is unique 
+
+              // console.log("R ", result)
+              data.event = result[0];
+              // console.log(data);
 
 
               res.render("attendeeEvent.ejs", data);
