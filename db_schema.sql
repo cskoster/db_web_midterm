@@ -62,7 +62,7 @@ VALUES (
 INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
     'Organizer Home',
-    'Fun Run Organizer Home Page',
+    'Organizer Home Page',
     'Weekly and Monthly Fun Run Organizer',
     'organizer_home_page'
   );

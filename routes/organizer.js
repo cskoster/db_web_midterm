@@ -61,7 +61,7 @@ router.get("/", function (req, res) {
             } else {
               data.unPublished = result;
               // start new
-              let queryPublished = 'SELECT * FROM events WHERE published == 1;'
+              let queryPublished = 'SELECT * FROM events WHERE published == 1;';
               global.db.all(queryPublished,
                 function (err, result) {
                   if (err) {

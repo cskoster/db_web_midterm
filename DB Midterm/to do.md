@@ -87,21 +87,37 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [ ] error handeling: redirect to siteSetting with message
 - [x] move appropriate items to Organizer Main
 - [x] Title for the Events there ie: fishing, yoga
-- [ ] "create new event" button
-- [ ] published events
-- [ ] published events: title, date created,  date published
-- [ ] add "created on" date in event table
-- [ ] number/type of tickets
-- [ ] add tickets table
-- [ ] shareable link to attendee page associated with
-- [ ] delete button 
-- [ ] delte button removes from db
-- [ ] delte button reload the page
-- [ ] display draft events
-- [ ] draft date created, title, num each ticket type
-- [ ] draft has link to edit page
-- [ ] draft has publish button
-- [ ] draft has delete button
+- [x] "create new event" button
+
+- [x] ● A heading which indicates that this is the Organiser Home Page  
+- [x] ● It should be accessed through a URL which is distinct from the Attendee Home Page  
+- [x] ● It should display the event manager name and description. For example “Stretch Yoga” and  
+- [x] “Yoga classes for all ages and abilities”.  
+- [x] ● It should have a link which points to the Site Settings Page  
+- [x] ● It should have a “Create New Event” button  
+- [x] ○ When pressed this should create a new draft event and redirect to it’s edit page  
+- [x] ● It should display a dynamically populated list of published events  
+- [ ] ○ The list should display useful information about the events including the title, date,  
+- [ ] when they were created and published and the number of each type of ticket for  
+- [ ] sale  
+- [ ] ○ For each event the list should display a sharing link which points to the  
+- [ ] relevant Attendee Home Page  
+- [ ] ○ For each event there should be a delete button. When pressed this should:  
+- [ ] ■ Remove the event from the database  
+- [ ] ■ Reload the page to display the updated information  
+- [ ] ● It should display a dynamically populated list of draft events  
+- [ ] ○ The list should display useful information about the events including the title, date,  
+- [ ] when they were created and published and the number of each type of ticket for  
+- [ ] sale  
+- [ ] ○ Each event in the list should be accompanied by a link which points to its edit page  
+- [ ] ○ For each event there should be a publish button. When pressed this should:  
+- [ ] ■ Update the event’s state from draft to published  
+- [ ] ■ Timestamp the publication date  
+- [ ] ■ Reload the page to display the updated information  
+- [ ] ○ For each event there should be a delete button. When pressed this should:  
+- [ ] ■ Remove the event from the database  
+- [ ] ■ Reload the page to display the updated information
+
 
 Bootstrap template stuff:
 - [ ] add title and heading and description back to organizerHome
