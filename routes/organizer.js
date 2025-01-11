@@ -54,7 +54,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    console.log(data);
+                    //console.log(data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -169,9 +169,6 @@ router.post("/create_event", (req, res, next) => {
 router.post("/edit_event", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='edit_event_page'";
 
-  // TODO use this, like in update_event below
-  // query = "UPDATE events SET 'title'= ?,'description'= ? WHERE = ?";
-  let queryEvent = `SELECT * FROM events WHERE id=${req.body.id};`
 
 
   let data = {};
@@ -188,6 +185,10 @@ router.post("/edit_event", function (req, res) {
         data.page = result[0];
 
         // second query
+
+        // TODO use this, like in update_event below
+        // query = "UPDATE events SET 'title'= ?,'description'= ? WHERE = ?";
+        let queryEvent = `SELECT * FROM events WHERE id=${req.body.id};`
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -197,6 +198,7 @@ router.post("/edit_event", function (req, res) {
             } else {
 
               data.event = result[0]; // only 1. searched by id
+              console.log(data);
               res.render("organizerEditEvent.ejs", data)
             }
           }
