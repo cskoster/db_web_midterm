@@ -129,6 +129,17 @@ https://www.geeksforgeeks.org/how-to-add-bootstrap-in-a-project/
 
 
 
+ATTENDEE PAGE:
+
+- [ ] ● A heading which indicates that this is the Attendee Home Page
+- [ ] ● It should be accessed through a URL which is distinct from the Organiser Home Page
+- [ ] ● It should display the site name and description
+- [ ] ● A list of published events
+- [ ] ○ The event title and date should be visible for each item
+- [ ] ○ Events should be ordered by event date with the next event appearing at the
+- [ ] top
+- [ ] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
+
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
 

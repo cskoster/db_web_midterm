@@ -165,11 +165,9 @@ router.post("/create_event", (req, res, next) => {
 
   dateEdited = formatDate(dateEdited);
   let dateCreated = dateEdited;
-  //console.log("REQ.body: " + req.body);
 
   let query = "INSERT INTO events (title, description,  date_created, published, date_event, date_edited, date_published, num_tickets,num_tickets_sold ) VALUES (?,?,?,?,?,?,?,?,?)";
   let query_parameters = [req.body.title, req.body.description, dateCreated, 0, req.body.date_event, dateEdited, 0, req.body.num_tickets, 0];
-
 
   // // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
