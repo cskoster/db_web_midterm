@@ -93,7 +93,7 @@ VALUES (
 
 INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
-    'Attendee Home',1
+    'Attendee Home',
     'Welcome to the Attendee Home Page',
     'Mange events',
     'attendee_page'
