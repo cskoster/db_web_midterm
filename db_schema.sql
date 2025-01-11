@@ -114,70 +114,97 @@ CREATE TABLE IF NOT EXISTS "events" (
   "description" TEXT NOT NULL,
   -- 0 is FALSE, 1 is TRUE: https://www.sqlite.org/datatype3.html
   "published" INT,
+  "date_event" TEXT NOT NULL,
   "date_edited" TEXT NOT NULL,
-  "date_published" TEXT
+  "date_published" TEXT,
+  "num_tickets" INT NOT NULL,
+  "num_tickets_sold" INT NOT NULL
 );
 
 -- unpublished event
 INSERT INTO EVENTS (
     'title',
     'description',
+    "date_event",
     'published',
     'date_edited',
-    'date_published'
+    'date_published',
+    'num_tickets',
+    'num_tickets_sold'
   )
 VALUES (
     'Party',
     "Bob's bday",
+    'Thu Jan 14 2025 15:46:19',
     0,
     'Thu Jan 09 2025 15:46:19',
-    NULL
+    NULL,
+    100,
+    12
   );
 
 INSERT INTO EVENTS (
     'title',
     'description',
+    "date_event",
     'published',
     'date_edited',
-    'date_published'
+    'date_published',
+    'num_tickets',
+    'num_tickets_sold'
   )
 VALUES (
     'Wedding',
     "Tommy and Beth get hitched",
+    'Thu Jan 14 2025 15:46:19',
     0,
     'Thu Jan 11 2025 15:47:11',
-    NULL
+    NULL,
+    200,
+    20
   );
 
 -- Published events
 INSERT INTO EVENTS (
     'title',
     'description',
+    "date_event",
     'published',
     'date_edited',
-    'date_published'
+    'date_published',
+    'num_tickets',
+    'num_tickets_sold'
   )
 VALUES (
     'Run in the hills',
     "12 Km run with hills",
+    'Thu Jan 14 2025 15:46:19',
     1,
     'Thu Jan 11 2025 15:47:11',
-    'Thu Jan 11 2025 15:47:11'
+    'Thu Jan 11 2025 15:47:11',
+    300,
+    30
   );
 
 INSERT INTO EVENTS (
     'title',
     'description',
+    "date_event",
     'published',
     'date_edited',
-    'date_published'
+    'date_published',
+    'num_tickets',
+    'num_tickets_sold'
   )
 VALUES (
     'Flat run on the beach',
     "6km run in sand",
+    'Thu Jan 14 2025 15:46:19',
     1,
     'Thu Jan 13 2025 15:47:11',
-    'Thu Jan 13 2025 15:47:11'
+    'Thu Jan 13 2025 15:47:11',
+    400,
+    40
   );
 
 COMMIT;

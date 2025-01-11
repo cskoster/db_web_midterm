@@ -97,7 +97,7 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [x] ● It should have a “Create New Event” button  
 - [x] ○ When pressed this should create a new draft event and redirect to it’s edit page  
 - [x] ● It should display a dynamically populated list of published events  
-- [ ] ○ The list should display useful information about the events including the title, date,  
+- [x] ○ The list should display useful information about the events including the title, date,  
 - [ ] when they were created and published and the number of each type of ticket for  
 - [ ] sale  
 - [ ] ○ For each event the list should display a sharing link which points to the  
