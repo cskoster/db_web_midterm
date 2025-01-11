@@ -37,7 +37,6 @@ router.get("/", function (req, res) {
 
               result.sort(compare);
               data.published = result;
-
               res.render("attendeeHome.ejs", data)
             }
           });
@@ -49,6 +48,8 @@ router.get("/", function (req, res) {
 
 // Attendee event
 router.get("/event", function (req, res) {
+  
+  console.log(req.body.event_id);
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
   // Execute the query and render the page with the results
   global.db.all(query,

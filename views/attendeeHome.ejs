@@ -48,15 +48,20 @@
         <div class="col-sm-12">
           <h2 id="published">Published events</h2>
 
-          <!-- ################# -->
           <% published.forEach((data) => {%>
           <div class="card">
             <div class="clearfix bg-secondary">
               <div class="card-footer bg-secondary text-white float-start"><%=data.title%></div>
               <div class="card-footer bg-secondary text-white float-end">
-                <button type="button" class="btn btn-primary">
-                  <a class="text-white" href="/attendee/event">View Event</a>
-                </button>
+                <!-- ################# -->
+
+                <form action="event" method="get">
+                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                  <button type="submit">View Event</button>
+                </form>
+
+
+                <!-- ################# -->
               </div>
             </div>
 
@@ -76,7 +81,6 @@
           </div>
           <br />
           <%});%>
-          <!-- ################# -->
         </div>
       </div>
     </div>
