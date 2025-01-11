@@ -159,19 +159,16 @@ router.get("/create_event", function (req, res) {
 
 /**POST a create new event */
 router.post("/create_event", (req, res, next) => {
-  let dateEdited = Date().split(" GMT")[0];
+  //let dateEdited = Date().split(" GMT")[0];
 
-  console.log(req.body);
-  // 2025-01-29T10:30
+  let dateEdited = new Date();
 
-  // d = new Date():
-  // 2025-01-11T08:26:22.481Z
-
+  dateEdited = formatDate(dateEdited);
+  let dateCreated = dateEdited;
 
   let query = "INSERT INTO events (title, description, published, date_created, date_edited, date_published) VALUES (?,?,?,?,?,?)";
-  query_parameters = [req.body.title, req.body.description, 0, dateEdited, dateEdited, "NULL"];
+  let query_parameters = [req.body.title, req.body.description, 0, dateCreated, dateEdited, "NULL"];
 
-  console.log("got here00");
 
   // // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -252,8 +249,17 @@ router.post("/update_event", (req, res, next) => {
     }
   );
 });
+/**Pass in a date object i. dateObject = new Data() 
+ * Returns date in: yyyy-mm-ddThh:mm format
+*/
 
+function formatDate(dateObject) {
+  let d = dateObject.toJSON();
 
+  let splitDate = d.split(":");
+  let newDate = splitDate[0] + ":" + splitDate[1];
+  return newDate;
+}
 
 //  Updates WORKS
 
