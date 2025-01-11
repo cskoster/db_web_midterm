@@ -30,6 +30,24 @@
       </div>
     </nav>
 
+    <div class="container mt-3">
+      <form action="create_event" method="post">
+        <div class="mb-3">
+          <label for="title">Event Title</label>
+          <input type="text" class="form-control" id="create_title" placeholder="New title" name="title" />
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="description">Description:</label>
+          <textarea class="form-control" rows="5" id="create_desc" name="description"></textarea>
+
+          <label for="date">Event Date</label>
+          <input type="datetime-local" id="date_event" name="date_event" />
+        </div>
+        <button type="submit" class="btn btn-primary">Create new event</button>
+      </form>
+    </div>
+
     <div>
       <p>Create a new event</p>
       <form action="create_event" method="post">

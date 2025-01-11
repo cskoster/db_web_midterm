@@ -161,9 +161,15 @@ router.get("/create_event", function (req, res) {
 router.post("/create_event", (req, res, next) => {
   let dateEdited = Date().split(" GMT")[0];
 
+  console.log(req.body);
+  // 2025-01-29T10:30
 
-  let query = "INSERT INTO events (title, description, published, date_edited,date_published) VALUES (?,?,?,?,?)";
-  query_parameters = [req.body.title, req.body.description, 0, dateEdited, "NULL"];
+  // d = new Date():
+  // 2025-01-11T08:26:22.481Z
+
+
+  let query = "INSERT INTO events (title, description, published, date_created, date_edited, date_published) VALUES (?,?,?,?,?,?)";
+  query_parameters = [req.body.title, req.body.description, 0, dateEdited, dateEdited, "NULL"];
 
   console.log("got here00");
 
