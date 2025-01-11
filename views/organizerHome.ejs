@@ -53,13 +53,10 @@
             <div class="clearfix bg-primary">
               <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
               <div class="card-header bg-primary text-white float-end">
-              
-                  <form action="edit_event" method="post">
-                    <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
-                    <button type="submit" class="btn btn-warning">Edit Event</button>
-                  </form>
-                  
-                </button>
+                <form action="edit_event" method="post">
+                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                  <button type="submit" class="btn btn-warning">Edit Event</button>
+                </form>
               </div>
             </div>
 
@@ -94,11 +91,16 @@
             <div class="card">
               <div class="clearfix bg-primary">
                 <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
-                <div class="card-header bg-primary text-white float-end"></div>
-                <!-- ########### -->
 
-
+                <!-- ############# -->
+                <div class="card-header bg-primary text-white float-end">
+                  <form action="edit_event" method="post">
+                    <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                    <button type="submit" class="btn btn-warning">Edit Event</button>
+                  </form>
+                </div>
               </div>
+
               <div class="card-body bg-info text-black">Date of event: <%=data.date_event%></div>
 
               <div class="clearfix bg-info">
