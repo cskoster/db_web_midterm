@@ -52,7 +52,9 @@
           <div class="card">
             <div class="clearfix bg-primary">
               <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
-              <div class="card-header bg-primary text-white float-end">Delete</div>
+              <div class="card-header bg-primary text-white float-end">
+                <button type="button" class="btn btn-warning">Edit Event</button>
+              </div>
             </div>
 
             <div class="card-body bg-info text-black"><%=data.date_event%></div>
@@ -68,6 +70,11 @@
               <div class="card-footer bg-secondary text-white float-start">Created On: <%=data.date_created %></div>
               <div class="card-footer bg-secondary text-white float-end">Published On: <%=data.date_published %></div>
             </div>
+            <div class="clearfix bg-secondary">
+              <div class="card-footer bg-secondary text-white float-end">
+                <button type="button" class="btn btn-danger">Delete Event</button>
+              </div>
+            </div>
           </div>
           <br />
           <%});%>
@@ -81,9 +88,9 @@
             <div class="card">
               <div class="clearfix bg-primary">
                 <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
-                <div class="card-header bg-primary text-white float-end">Delete</div>
+                <div class="card-header bg-primary text-white float-end"></div>
               </div>
-              <div class="card-body bg-info text-black"><%=data.date_event%></div>
+              <div class="card-body bg-info text-black">Date of event: <%=data.date_event%></div>
 
               <div class="clearfix bg-info">
                 <div class="card-body bg-info text-black float-start"><%=data.description%></div>
@@ -94,8 +101,16 @@
               </div>
 
               <div class="clearfix bg-secondary">
-                <div class="card-footer bg-secondary text-white float-start">Last edited: <%=data.date_edited %></div>
-                <div class="card-footer bg-secondary text-white float-end">Publish</div>
+                <div class="card-body bg-secondary text-white float-start">Created On: <%=data.date_created %></div>
+                <div class="card-body bg-secondary text-white float-end">Last edited: <%=data.date_edited %></div>
+              </div>
+              <div class="clearfix bg-secondary">
+                <div class="card-footer bg-secondary text-white float-start text-info">
+                  <button type="button" class="btn btn-warning">Publish event</button>
+                </div>
+                <div class="card-footer bg-secondary text-white float-end">
+                  <button type="button" class="btn btn-danger">Delete Event</button>
+                </div>
               </div>
             </div>
             <br />
