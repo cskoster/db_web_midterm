@@ -29,7 +29,7 @@ router.get("/", function (req, res) {
 
         /* 
           NOTE: this could be done by "SELECT * FROM events;"
-          However, this would put login in the view in violateion of
+          However, this would put login in the view in violation of
           Separation of concern (SOC).
         */
         let queryPublished = 'SELECT * FROM events WHERE published == 1;'
@@ -40,24 +40,19 @@ router.get("/", function (req, res) {
               // do something if error from lab: res.redirect("/");
               next(err); //send the error on to the error handler
             } else {
+
+              result.sort(compare);
               data.published = result;
+
+
+              //console.log(data);
               res.render("attendeeHome.ejs", data)
             }
           });
         // end new
-        // add "event" to template object
-
-        // res.render("organizerHome.ejs", data)
       }
-    }
-
-  )
+    })
 });
-
-
-
-
-
 
 
 // Attendee event
@@ -74,6 +69,21 @@ router.get("/event", function (req, res) {
     }
   );
 });
+
+// taken from:
+//https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value/16174180#comment31549267_1129270
+function compare(a, b) {
+  if (a.date_event < b.date_event) {
+    return -1;
+  }
+  if (a.date_event > b.date_event) {
+    return 1;
+  }
+  return 0;
+}
+
+//objs.sort(compare);
+
 
 
 
