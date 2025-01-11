@@ -69,10 +69,10 @@ VALUES (
 
 INSERT INTO site_settings ('title', 'heading', 'description', 'name')
 VALUES (
-    'Event Page',
-    'Welcome to the Event Page',
-    'View events',
-    'event_page'
+    'Create Event Page',
+    'Create a new event',
+    'Make a new event!',
+    'create_event_page'
   );
 
 INSERT INTO site_settings ('title', 'heading', 'description', 'name')

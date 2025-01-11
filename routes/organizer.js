@@ -132,50 +132,40 @@ router.post("/update_site_settings", (req, res, next) => {
 });
 
 
-// Organizer Edit event Home
-// router.get("/events", function (req, res) {
-//   let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
+// Organizer Create Event Home
+/** GET a create new event */
+router.get("/create_event", function (req, res) {
 
-//   let data = {};
-//   // Execute the query and render the page with the results
-//   global.db.all(query,
-//     function (err, result) {
-//       if (err) {
+  let data = {};
+  let query = "SELECT title, description, heading FROM site_settings where name='create_event_page'";
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
 
-//         // do something if error from lab: res.redirect("/");
-//         next(err); //send the error on to the error handler
-//       } else {
+        // do something if error from lab: res.redirect("/");
+        next(err); //send the error on to the error handler
+      } else {
 
-//         // ok works
-//         data.page = result[0]; // only one page with this name. db constraint
+        // ok works
+        //        data.event = result;
+        data.page = result[0]; // only one page with this name. db constraint
+        res.render("organizerCreateEvent.ejs", data);
+      }
+    }
+  ); // END second query
 
-//         let queryEvent = 'SELECT * FROM events WHERE published == 0;'
-//         global.db.all(queryEvent,
-//           function (err, result) {
-//             if (err) {
 
-//               // do something if error from lab: res.redirect("/");
-//               next(err); //send the error on to the error handler
-//             } else {
+});
 
-//               // ok works
-//               data.event = result;
-//               res.render("organizerEvent.ejs", data)
-//             }
-//           }
-//         ); // END second query
-//       }
-//     }
-//   );
-
-// });
-
+/**POST a create new event */
 router.post("/create_event", (req, res, next) => {
   let dateEdited = Date().split(" GMT")[0];
 
 
   let query = "INSERT INTO events (title, description, published, date_edited,date_published) VALUES (?,?,?,?,?)";
-  query_parameters = [req.body.title, req.body.description, "NULL", dateEdited, "NULL"];
+  query_parameters = [req.body.title, req.body.description, 0, dateEdited, "NULL"];
+
+  console.log("got here00");
 
   // // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -183,7 +173,7 @@ router.post("/create_event", (req, res, next) => {
       if (err) {
         next(err); //send the error on to the error handler
       } else {
-        res.redirect("/organizer/events");
+        res.redirect("/organizer/");
         //next();
       }
     }
@@ -280,6 +270,43 @@ router.post("/update_event", (req, res, next) => {
 //       } else {
 //         res.redirect("/organizer/events");
 //         //next(); // TODO: what do?
+//       }
+//     }
+//   );
+// });
+
+
+// router.get("/events", function (req, res) {
+//   let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
+
+//   let data = {};
+//   // Execute the query and render the page with the results
+//   global.db.all(query,
+//     function (err, result) {
+//       if (err) {
+
+//         // do something if error from lab: res.redirect("/");
+//         next(err); //send the error on to the error handler
+//       } else {
+
+//         // ok works
+//         data.page = result[0]; // only one page with this name. db constraint
+
+//         let queryEvent = 'SELECT * FROM events WHERE published == 0;'
+//         global.db.all(queryEvent,
+//           function (err, result) {
+//             if (err) {
+
+//               // do something if error from lab: res.redirect("/");
+//               next(err); //send the error on to the error handler
+//             } else {
+
+//               // ok works
+//               data.event = result;
+//               res.render("organizerEvent.ejs", data)
+//             }
+//           }
+//         ); // END second query
 //       }
 //     }
 //   );

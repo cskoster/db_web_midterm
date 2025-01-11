@@ -24,22 +24,5 @@
         <button type="submit">Create a new event</button>
       </form>
     </div>
-
-    <div>
-      <h3>Events Not Published</h3>
-
-      <% event.forEach((data) => {%>
-      <form action="edit_event" method="post">
-        <div>
-          <h4><%=data.title%></h4>
-          <h4><%=data.description%></h4>
-
-          <p>Last edited: <%=data.date_edited %></p>
-          <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
-          <button type="submit">Edit: <%=data.title %></button>
-        </div>
-      </form>
-      <%});%>
-    </div>
   </body>
 </html>
