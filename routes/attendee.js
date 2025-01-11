@@ -62,7 +62,7 @@ router.get('/event/:event_id', function (req, res) {
       } else {
 
         // site related templates
-        data.site = result[0];
+        data.page = result[0];
         // start new
 
         let queryEvent = 'SELECT * FROM events WHERE id == ' + event_id + ';';
