@@ -71,7 +71,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    console.log(data);
+                    // console.log(data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -165,9 +165,10 @@ router.post("/create_event", (req, res, next) => {
 
   dateEdited = formatDate(dateEdited);
   let dateCreated = dateEdited;
+  //console.log("REQ.body: " + req.body);
 
-  let query = "INSERT INTO events (title, description, published, date_created, date_edited, date_published) VALUES (?,?,?,?,?,?)";
-  let query_parameters = [req.body.title, req.body.description, 0, dateCreated, dateEdited, "NULL"];
+  let query = "INSERT INTO events (title, description,  date_created, published, date_event, date_edited, date_published, num_tickets,num_tickets_sold ) VALUES (?,?,?,?,?,?,?,?,?)";
+  let query_parameters = [req.body.title, req.body.description, dateCreated, 0, req.body.date_event, dateEdited, 0, req.body.num_tickets, 0];
 
 
   // // Execute the query and send a confirmation message
@@ -229,7 +230,7 @@ router.post("/edit_event", function (req, res) {
 router.post("/update_event", (req, res, next) => {
 
   if (!req.body.published) {
-    console.log("null;")
+    // console.log("null;")
     req.body.published = 0;
   }
 
