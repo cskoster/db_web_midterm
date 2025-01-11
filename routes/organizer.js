@@ -11,23 +11,6 @@
 const express = require("express");
 const router = express.Router();
 
-// Organizer Home
-// router.get("/", function (req, res) {
-//   let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
-
-//   // Execute the query and render the page with the results
-//   global.db.all(query,
-//     function (err, result) {
-//       if (err) {
-
-//         // do something if error from lab: res.redirect("/");
-//         next(err); //send the error on to the error handler
-//       } else {
-//         res.render("organizerHome.ejs", result[0])
-//       }
-//     }
-//   );
-// });
 
 // Organizer Home
 router.get("/", function (req, res) {
