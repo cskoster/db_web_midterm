@@ -54,7 +54,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    console.log("HOME: ", data);
+                    ///console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -201,7 +201,7 @@ router.post("/edit_event", function (req, res) {
             } else {
 
               data.event = result[0]; // only 1. searched by id
-              console.log("DATA: ", data);
+              //console.log("DATA: ", data);
               res.render("organizerEditEvent.ejs", data)
             }
           }
@@ -221,28 +221,41 @@ router.post("/update_event", (req, res, next) => {
 
   console.log("ID: ", req.body.id)
 
-  let date = new Date();
-  date = formatDate(date);
-  console.log("here:", date)
-  // let date = Date().split(" GMT")[0];
+  let dateEdited = new Date();
+  dateEdited = formatDate(dateEdited);
 
-  // HERE
-  query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
-  query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
+  // HERE:
+  /*
+  This is the problem: we cannot put placeholder in the date picker.
+  WE must redo the create event to ask for date in yyyy-mm-dd formatm and a separate field
+  for hh:mm format.
+
+  Then put them together in the yyy-mm-ddThh:mm format and store in db,
+
+  For placeholder, split again.git a
+  */
+
+  // ok this is what the form sent
+  console.log("here:", req.body.title, req.body.description, req.body, date_event, req.body.date_event, req.body.num_tickets, req.body.id);
+
+
+  query = "UPDATE events SET title= ?, description=?, date_edited=?, date_event, num_tickets=?, WHERE id=?;";
+  query_parameters = [req.body.title, req.body.description, dateEdited, req.body.num_tickets, req.body.id];
+
 
   // Execute the query and send a confirmation message
-  global.db.run(query, query_parameters,
-    function (err) {
-      if (err) {
-        console.log("ERROR")
-        next(err); //send the error on to the error handler
-      } else {
-        console.log(query_parameters);
-        res.redirect("/organizer/");
-        //next(); // TODO: what do?
-      }
-    }
-  );
+  // global.db.run(query, query_parameters,
+  //   function (err) {
+  //     if (err) {
+  //       console.log("ERROR")
+  //       next(err); //send the error on to the error handler
+  //     } else {
+  //       console.log(query_parameters);
+  //       res.redirect("/organizer/");
+  //       //next(); // TODO: what do?
+  //     }
+  //   }
+  // );
 });
 /**Pass in a date object i. dateObject = new Data() 
  * Returns date in: yyyy-mm-ddThh:mm format
