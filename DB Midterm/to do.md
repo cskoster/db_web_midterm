@@ -136,9 +136,14 @@ ATTENDEE PAGE:
 - [x] ● It should display the site name and description
 - [x] ● A list of published events
 - [x] ○ The event title and date should be visible for each item
-- [ ] ○ Events should be ordered by event date with the next event appearing at the
-- [ ] top
+- [x] ○ Events should be ordered by event date with the next event appearing at the
+- [x] top
 - [ ] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
+
+TOTO: Nice to have
+- [ ] format date / time on pages split on "T"
+
+
 
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
