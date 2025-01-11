@@ -220,7 +220,7 @@ VALUES (
     'Flat run on the beach',
     "6km run in sand",
     -- created
-    '2025-01-29T10:30',
+    '2025-01-29T20:30',
     -- event date
     '2025-02-29T10:30',
     1,

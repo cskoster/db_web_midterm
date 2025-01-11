@@ -48,10 +48,13 @@
         <div class="col-sm-12">
           <h2 id="published">Published events</h2>
 
-          <!-- ################# -->
           <% published.forEach((data) => {%>
           <div class="card">
-            <div class="card-header bg-primary text-white"><%=data.title%></div>
+            <div class="clearfix bg-primary">
+              <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
+              <div class="card-header bg-primary text-white float-end">Delete</div>
+            </div>
+
             <div class="card-body bg-info text-black"><%=data.date_event%></div>
             <div class="clearfix bg-info">
               <div class="card-body bg-info text-black float-start"><%=data.description%></div>
@@ -68,17 +71,20 @@
           </div>
           <br />
           <%});%>
-          <!-- ################# -->
         </div>
 
         <div class="row">
           <div class="col-sm-12">
             <h2 id="unpublished">UnPublished</h2>
-            <!-- ################# -->
+
             <% unPublished.forEach((data) => {%>
             <div class="card">
-              <div class="card-header bg-primary text-white"><%=data.title%></div>
+              <div class="clearfix bg-primary">
+                <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
+                <div class="card-header bg-primary text-white float-end">Delete</div>
+              </div>
               <div class="card-body bg-info text-black"><%=data.date_event%></div>
+
               <div class="clearfix bg-info">
                 <div class="card-body bg-info text-black float-start"><%=data.description%></div>
                 <div class="card-body bg-info text-black float-end"><b>Total Tickets: <%=data.num_tickets%></b></div>
@@ -87,11 +93,13 @@
                 </div>
               </div>
 
-              <div class="card-footer bg-secondary text-white">Last edited: <%=data.date_edited %></div>
+              <div class="clearfix bg-secondary">
+                <div class="card-footer bg-secondary text-white float-start">Last edited: <%=data.date_edited %></div>
+                <div class="card-footer bg-secondary text-white float-end">Publish</div>
+              </div>
             </div>
             <br />
             <%});%>
-            <!-- ################# -->
           </div>
         </div>
       </div>
