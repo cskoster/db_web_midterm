@@ -85,8 +85,8 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 
 
 - [ ] error handeling: redirect to siteSetting with message
-- [ ] move appropriate items to Organizer Main
-- [ ] Title for the Events there ie: fishing, yoga
+- [x] move appropriate items to Organizer Main
+- [x] Title for the Events there ie: fishing, yoga
 - [ ] "create new event" button
 - [ ] published events
 - [ ] published events: title, date created,  date published
