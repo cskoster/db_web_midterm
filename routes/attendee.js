@@ -47,9 +47,15 @@ router.get("/", function (req, res) {
 
 
 // Attendee event
-router.get("/event", function (req, res) {
-  
-  console.log(req.body.event_id);
+// read the query param
+// https://stackoverflow.com/questions/20089582/how-to-get-a-url-parameter-in-express
+// router.get("/event/:event_id", function (req, res) {
+router.get('/event/:event_id', function (req, res) {
+
+  console.log(req.params.event_id);
+
+
+
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
   // Execute the query and render the page with the results
   global.db.all(query,

@@ -55,11 +55,13 @@
               <div class="card-footer bg-secondary text-white float-end">
                 <!-- ################# -->
 
-                <form action="event" method="get">
-                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                <!--
+                 <form action="event" method="get">
+                  <input type="hidden" id="event_id" name="event_id" value="<%=data.id%>" />
                   <button type="submit">View Event</button>
-                </form>
-
+                </form> 
+                -->
+                <a href="/attendee/event/:<%=data.id%>"><button type="submit">View Event</button></a>
 
                 <!-- ################# -->
               </div>
