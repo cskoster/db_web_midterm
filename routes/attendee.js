@@ -51,11 +51,8 @@ router.get("/", function (req, res) {
 // https://stackoverflow.com/questions/20089582/how-to-get-a-url-parameter-in-express
 // router.get("/event/:event_id", function (req, res) {
 router.get('/event/:event_id', function (req, res) {
-
-  console.log(req.params.event_id);
-
-
-
+  let data = {};
+  let event_id = req.params.event_id;
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
   // Execute the query and render the page with the results
   global.db.all(query,
@@ -63,9 +60,39 @@ router.get('/event/:event_id', function (req, res) {
       if (err) {
         next(err); //send the error on to the error handler
       } else {
-        res.render("attendeeEvent.ejs", result[0])
+
+        // site related templates
+        data.site = result[0];
+        // start new
+
+        let queryEvent = 'SELECT * FROM events WHERE id == ' + event_id + ';';
+        global.db.all(queryEvent,
+          function (err, result) {
+            if (err) {
+
+              // do something if error from lab: res.redirect("/");
+              next(err); //send the error on to the error handler
+            } else {
+              // add dat from query
+              data.published = result;
+              console.log(data);
+
+
+              res.render("attendeeEvent.ejs", data);
+            }
+          });
+        // end new
+        // add "event" to template object
+
+        // res.render("organizerHome.ejs", data)
       }
+
+
+
+      // res.render("attendeeEvent.ejs", result[0]);
+
     }
+
   );
 });
 

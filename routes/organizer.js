@@ -209,7 +209,6 @@ router.post("/edit_event", function (req, res) {
 
 
 router.post("/update_event", (req, res, next) => {
-
   if (!req.body.published) {
     // console.log("null;")
     req.body.published = 0;
