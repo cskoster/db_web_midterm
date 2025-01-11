@@ -232,7 +232,9 @@ router.post("/update_event", (req, res, next) => {
 
   Then put them together in the yyy-mm-ddThh:mm format and store in db,
 
-  For placeholder, split again.git a
+  For placeholder, split again.
+
+  Or dont let them change the date.
   */
 
   // ok this is what the form sent
