@@ -260,69 +260,6 @@ function formatDate(dateObject) {
   return newDate;
 }
 
-//  Updates WORKS
-
-// router.post("/update_event", (req, res, next) => {
-//   if (!req.body.published) {
-//     console.log("null;")
-//     req.body.published = 0;
-//   }
-
-//   let date = Date().split(" GMT")[0];
-//   query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
-//   query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
-
-//   // Execute the query and send a confirmation message
-
-//   global.db.run(query, query_parameters,
-//     function (err) {
-//       if (err) {
-//         next(err); //send the error on to the error handler
-//       } else {
-//         res.redirect("/organizer/events");
-//         //next(); // TODO: what do?
-//       }
-//     }
-//   );
-// });
-
-
-// router.get("/events", function (req, res) {
-//   let query = "SELECT title, description, heading FROM site_settings where name='event_page'";
-
-//   let data = {};
-//   // Execute the query and render the page with the results
-//   global.db.all(query,
-//     function (err, result) {
-//       if (err) {
-
-//         // do something if error from lab: res.redirect("/");
-//         next(err); //send the error on to the error handler
-//       } else {
-
-//         // ok works
-//         data.page = result[0]; // only one page with this name. db constraint
-
-//         let queryEvent = 'SELECT * FROM events WHERE published == 0;'
-//         global.db.all(queryEvent,
-//           function (err, result) {
-//             if (err) {
-
-//               // do something if error from lab: res.redirect("/");
-//               next(err); //send the error on to the error handler
-//             } else {
-
-//               // ok works
-//               data.event = result;
-//               res.render("organizerEvent.ejs", data)
-//             }
-//           }
-//         ); // END second query
-//       }
-//     }
-//   );
-// });
-
 
 
 

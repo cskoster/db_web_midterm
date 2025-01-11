@@ -31,6 +31,12 @@ router.get("/", function (req, res) {
 });
 
 
+
+
+
+
+
+
 // Attendee event
 router.get("/event", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
