@@ -9,6 +9,7 @@
     <title><%=page.title%></title>
   </head>
   <body>
+    <h1>There is no id in the post</h1>
     <div class="p-5 bg-primary text-white text-center">
       <h1><%=page.heading%></h1>
       <p><%=page.description%></p>
@@ -24,7 +25,7 @@
       </div>
     </nav>
     <div class="container mt-3">
-      <form action="create_event" method="post">
+      <form action="update_event" method="post">
         <div class="mb-3">
           <label for="title">Event Title</label>
           <input type="text" class="form-control" id="create_title" placeholder="<%=event.title %>" name="title" />

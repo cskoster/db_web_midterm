@@ -217,10 +217,11 @@ router.post("/update_event", (req, res, next) => {
   }
 
   let date = new Date();
-  date = formatDate(dateEdited);
+  date = formatDate(date);
+  console.log("here:", date)
   // let date = Date().split(" GMT")[0];
 
-
+  // HERE
   query = "UPDATE events SET title= ?, description=?, published=?, date_edited=?, date_published=NULL WHERE id=?;";
   query_parameters = [req.body.title, req.body.description, req.body.published, date, req.body.id];
 
@@ -228,9 +229,11 @@ router.post("/update_event", (req, res, next) => {
   global.db.run(query, query_parameters,
     function (err) {
       if (err) {
+        console.log("ERROR")
         next(err); //send the error on to the error handler
       } else {
-        res.redirect("/organizer/events");
+        console.log(query_parameters);
+        res.redirect("/organizer/");
         //next(); // TODO: what do?
       }
     }
