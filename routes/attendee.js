@@ -26,12 +26,6 @@ router.get("/", function (req, res) {
 
         // add "page" info to template object
         data.page = result[0]; // only one page with this name. db constraint
-
-        /* 
-          NOTE: this could be done by "SELECT * FROM events;"
-          However, this would put login in the view in violation of
-          Separation of concern (SOC).
-        */
         let queryPublished = 'SELECT * FROM events WHERE published == 1;'
         global.db.all(queryPublished,
           function (err, result) {
@@ -44,8 +38,6 @@ router.get("/", function (req, res) {
               result.sort(compare);
               data.published = result;
 
-
-              //console.log(data);
               res.render("attendeeHome.ejs", data)
             }
           });
@@ -72,6 +64,7 @@ router.get("/event", function (req, res) {
 
 // taken from:
 //https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value/16174180#comment31549267_1129270
+// nice.
 function compare(a, b) {
   if (a.date_event < b.date_event) {
     return -1;
@@ -81,10 +74,6 @@ function compare(a, b) {
   }
   return 0;
 }
-
-//objs.sort(compare);
-
-
 
 
 module.exports = router;
