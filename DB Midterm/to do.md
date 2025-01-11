@@ -100,8 +100,8 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [x] ○ The list should display useful information about the events including the title, date,  
 - [x] when they were created and published and the number of each type of ticket for  
 - [x] sale  
-- [ ] ○ For each event the list should display a sharing link which points to the  
-- [ ] relevant Attendee Home Page  
+- [x] ○ For each event the list should display a sharing link which points to the  
+- [x] relevant Attendee Home Page  
 - [ ] ○ For each event there should be a delete button. When pressed this should:  
 - [ ] ■ Remove the event from the database  
 - [ ] ■ Reload the page to display the updated information  
@@ -138,7 +138,7 @@ ATTENDEE PAGE:
 - [x] ○ The event title and date should be visible for each item
 - [x] ○ Events should be ordered by event date with the next event appearing at the
 - [x] top
-- [ ] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
+- [x] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
 
 TOTO: Nice to have
 - [ ] format date / time on pages split on "T"
