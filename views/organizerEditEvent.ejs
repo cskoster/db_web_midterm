@@ -28,6 +28,8 @@
       <form action="update_event" method="post">
         <div class="mb-3">
           <label for="title">Event Title</label>
+
+          <!-- ############# -->
           <input type="text" class="form-control" id="create_title" placeholder="<%=event.title %>" name="title" />
         </div>
 
@@ -48,14 +50,9 @@
         </div>
         <div class="mb-3 mt-3"></div>
         <label for="num_tickets">Number of Tickets</label>
-        <input
-          type="text"
-          class="form-control"
-          id="num_tickets"
-          placeholder="<%=event.num_tickets%>"
-          name="num_tickets"
-        />
+        <input type="text" class="form-control" id="num_tickets" value="<%=event.num_tickets%>" name="num_tickets" />
         <div class="mb-3 mt-3">
+          <input type="hidden" id="event_<%=event.id%>" name="id" value="<%=event.id%>" />
           <button type="submit" class="btn btn-primary">Update event</button>
         </div>
       </form>

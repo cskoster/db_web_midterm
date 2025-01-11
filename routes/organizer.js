@@ -54,7 +54,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    //console.log(data);
+                    console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -170,7 +170,6 @@ router.post("/edit_event", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='edit_event_page'";
 
 
-
   let data = {};
 
   // second query
@@ -188,8 +187,12 @@ router.post("/edit_event", function (req, res) {
 
         // TODO use this, like in update_event below
         // query = "UPDATE events SET 'title'= ?,'description'= ? WHERE = ?";
-        let queryEvent = `SELECT * FROM events WHERE id=${req.body.id};`
-        global.db.all(queryEvent,
+        // let queryEvent = `SELECT * FROM events WHERE id=${req.body.id};`
+
+        let queryEvent = 'SELECT * FROM events WHERE id=?';
+        let query_parameters = [req.body.id];
+
+        global.db.all(queryEvent, query_parameters,
           function (err, result) {
             if (err) {
 
@@ -198,7 +201,7 @@ router.post("/edit_event", function (req, res) {
             } else {
 
               data.event = result[0]; // only 1. searched by id
-              console.log(data);
+              console.log("DATA: ", data);
               res.render("organizerEditEvent.ejs", data)
             }
           }
@@ -215,6 +218,8 @@ router.post("/update_event", (req, res, next) => {
     // console.log("null;")
     req.body.published = 0;
   }
+
+  console.log("ID: ", req.body.id)
 
   let date = new Date();
   date = formatDate(date);
