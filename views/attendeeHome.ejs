@@ -51,7 +51,15 @@
           <!-- ################# -->
           <% published.forEach((data) => {%>
           <div class="card">
-            <div class="card-header bg-primary text-white"><%=data.title%></div>
+            <div class="clearfix bg-secondary">
+              <div class="card-footer bg-secondary text-white float-start"><%=data.title%></div>
+              <div class="card-footer bg-secondary text-white float-end">
+                <button type="button" class="btn btn-primary">
+                  <a class="text-white" href="/attendee/event">View Event</a>
+                </button>
+              </div>
+            </div>
+
             <div class="card-body bg-info text-black"><%=data.date_event%></div>
             <div class="clearfix bg-info">
               <div class="card-body bg-info text-black float-start"><%=data.description%></div>
