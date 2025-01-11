@@ -53,7 +53,15 @@
             <div class="clearfix bg-primary">
               <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
               <div class="card-header bg-primary text-white float-end">
-                <button type="button" class="btn btn-warning">Edit Event</button>
+              
+                  <form action="edit_event" method="post">
+                    
+                    <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                    
+
+                    <button type="submit" class="btn btn-warning">Edit Event</button>
+                  </form>
+                </button>
               </div>
             </div>
 
