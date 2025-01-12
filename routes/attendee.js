@@ -104,42 +104,36 @@ router.get('/event/:event_id', function (req, res) {
 
 router.post("/make_booking", (req, res, next) => {
   console.log("make Booking");
-
+  let data = {};
 
   // let dateBooked = new Date();
   // dateBooked = util.formatDate(dateBooked);
   console.log(req.body.name, req.body.email, req.body.num_tickets);
 
-  // redirect to /booked
-  // display page
-
-  // lookup name / email in users / email tables
-  //if no exist put in
-
-  // check if name /email is in booking table. if is message "already booked"
-
-  // if not add to table
-
-  // redirect to booked page
+  data.name = req.body.name;
+  data.email = req.body.email;
+  data.num_tickets = req.body.num_tickets;
 
 
-  // query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
-  // query_parameters = [dateBooked, req.body.id];
+  let query = "SELECT title, description, heading FROM site_settings where name='create_event_page'";
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
+
+        // do something if error from lab: res.redirect("/");
+        next(err); //send the error on to the error handler
+      } else {
+
+        data.page = result[0]; // only one page with this name. db constraint
+        console.log(data);
+        res.render("attendeeBooked", data);
+      }
+    }
+  );
 
 
-  // // Execute the query and send a confirmation message
-  // global.db.run(query, query_parameters,
-  //   function (err) {
-  //     if (err) {
-  //       console.log("ERROR")
-  //       next(err); //send the error on to the error handler
-  //     } else {
-  //       console.log(query_parameters);
-  //       res.redirect("/organizer/");
-  //       next(); // TODO: what do?
-  //     }
-  //   }
-  // );
+
+
 });
 
 
