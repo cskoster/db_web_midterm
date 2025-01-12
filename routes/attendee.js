@@ -82,7 +82,7 @@ router.get('/event/:event_id', function (req, res) {
               next(err); //send the error on to the error handler
             } else {
               data.event = result[0];
-              console.log("Event data:", data);
+              // console.log("Event data:", data);
 
 
               res.render("attendeeEvent.ejs", data);
@@ -143,8 +143,6 @@ router.post("/make_booking", (req, res, next) => {
               } else {
 
                 // NEED TO PUT THE EMAIL ADDRESS IN NOW
-
-
                 let query = "SELECT user_id from users where user_name=?";
                 let query_parameters = [userName];
 
@@ -158,16 +156,6 @@ router.post("/make_booking", (req, res, next) => {
 
                       data.nameLookup = result[0]; // only one page with this name. db constraint
 
-
-                      // insert into email_accounts
-
-
-
-
-                      // get the email_account_id
-
-
-                      // GOT THE event_id, the user_id
                       console.log("HERE: ", data);
                       console.log("user_id: ", data.nameLookup.user_id,
                         "  email_account_id: ", data.email_account_id, // dont have
@@ -175,8 +163,9 @@ router.post("/make_booking", (req, res, next) => {
                         " number_tickets: ", data.num_tickets,
                         " date booked: ", dateBooked);
 
-                      let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
-                      let query_parameters = [data.nameLookup.user_id, data.event_id, data.num_tickets, dateBooked];
+                      // insert into email_accounts
+                      let query = "INSERT INTO email_accounts (user_id, email_address) VALUES (?,?)";
+                      let query_parameters = [data.nameLookup.user_id, data.email];
                       global.db.all(query, query_parameters,
                         function (err, result) {
                           if (err) {
@@ -184,17 +173,44 @@ router.post("/make_booking", (req, res, next) => {
                             // do something if error from lab: res.redirect("/");
                             next(err); //send the error on to the error handler
                           } else {
-                            console.log("Worked!")
 
+                            //data.nameLookup = result[0]; // only one page with this name. db constraint
+                            console.log("Success");
+
+                            // get the email_account_id
+
+
+                            // GOT THE event_id, the user_id
+                            // console.log("HERE: ", data);
+                            // console.log("user_id: ", data.nameLookup.user_id,
+                            //   "  email_account_id: ", data.email_account_id, // dont have
+                            //   " event_id: ", data.event_id,
+                            //   " number_tickets: ", data.num_tickets,
+                            //   " date booked: ", dateBooked);
+
+
+                            // back to this later
+                            // let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
+                            // let query_parameters = [data.nameLookup.user_id, data.event_id, data.num_tickets, dateBooked];
+                            // global.db.all(query, query_parameters,
+                            //   function (err, result) {
+                            //     if (err) {
+
+                            //       // do something if error from lab: res.redirect("/");
+                            //       next(err); //send the error on to the error handler
+                            //     } else {
+                            //       console.log("Worked!")
+
+                            //     }
+                            //   });
                           }
-                        });
+                        }
+                      );
                     }
-                  }
-                );
-              }
-            }
-          );
-        } // done: INSERT into users
+                  });
+              };
+            }); // done: INSERT into users
+        }
 
 
 
