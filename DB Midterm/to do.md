@@ -159,11 +159,11 @@ ATTENDEE EVENT PAGE
 - [x] requirements for the page are as follows:
 - [x] ● A heading which indicates that this is the Attendee Event Page
 - [x] ● It should display a single event determined by the url
-- [ ] ● It should display information about the event including title, description, date, ticket
+- [x] ● It should display information about the event including title, description, date, ticket
 - [ ] types and ticket prices
 - [ ] ● The user should be able to select the number of each type of ticket they want to purchase
-- [ ] ● The user should enter their name
-- [ ] ● There should be a Book button which will book the tickets
+- [x] ● The user should enter their name
+- [x] ● There should be a Book button which will book the tickets
 - [ ] ● Attendees should only be able to book as many tickets as are available
 - [x] ● There should be a back button which redirects the user to the Attendee Home Page.
 
