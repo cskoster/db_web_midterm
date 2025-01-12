@@ -80,11 +80,6 @@ router.get('/event/:event_id', function (req, res) {
               // do something if error from lab: res.redirect("/");
               next(err); //send the error on to the error handler
             } else {
-              // add dat from query
-
-              // only one row, id is unique 
-
-              // console.log("R ", result)
               data.event = result[0];
               console.log(data);
 
