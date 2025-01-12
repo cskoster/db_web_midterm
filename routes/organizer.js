@@ -73,23 +73,45 @@ router.get("/", function (req, res) {
 
 // Set up title, heading and description of the site pages
 router.get("/siteSettings", function (req, res) {
-  let query = " SELECT title, description, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
-
+  let query = "SELECT title, description, heading FROM site_settings where name='site_settings_page'";
+  let data = {};
+  // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
       if (err) {
-        //console.log(err);
-        // do something if error from lab: res.redirect("/");
 
-        // This happens if there is no database
+        // site settings get atted here
+
+        // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
       } else {
-        res.render("siteSettings.ejs", { formData: result });
-      }
-    }
-  );
 
+
+        data.page = result[0];
+        // ###########
+        let query = " SELECT title, description, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
+
+        global.db.all(query,
+          function (err, result) {
+            if (err) {
+              //console.log(err);
+              // do something if error from lab: res.redirect("/");
+
+              // This happens if there is no database
+              next(err); //send the error on to the error handler
+            } else {
+
+              data.siteSettings = result;
+              console.log(data);
+              // res.render("siteSettings.ejs", { formData: result });
+              res.render("siteSettings.ejs", data);
+            }
+          }
+        );
+      }
+    });
 });
+
 
 
 // TODO: passing the tablename is not so good, as we write to it
