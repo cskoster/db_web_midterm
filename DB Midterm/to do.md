@@ -123,8 +123,8 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 
 
 Bootstrap template stuff:
-- [ ] add title and heading and description back to organizerHome
-- [ ] Do Home page
+- [x] add title and heading and description back to organizerHome
+- [x] Do Home page
 - [ ] Do site settings page
 
 at Site settings in instructions

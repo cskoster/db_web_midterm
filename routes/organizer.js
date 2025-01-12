@@ -15,7 +15,6 @@ const router = express.Router();
 // Organizer Home
 router.get("/", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
-
   let data = {};
   // Execute the query and render the page with the results
   global.db.all(query,
@@ -108,7 +107,7 @@ router.post("/update_site_settings", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
         res.redirect("/organizer/siteSettings");
-        //next(); // TODO: what do?
+        next(); // TODO: what do?
       }
     }
   );
