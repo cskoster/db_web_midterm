@@ -24,41 +24,40 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-12">
-          <h2 id="published">Published events</h2>
+          <% siteSettings.forEach((siteSettings) => {%>
 
-          <% published.forEach((data) => {%>
           <div class="card">
             <div class="clearfix bg-primary">
-              <div class="card-header bg-primary text-white float-start"><%=data.title%></div>
-              <div class="card-header bg-primary text-white float-end">
-                <form action="edit_event" method="post">
-                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
-                  <button type="submit" class="btn btn-warning">Edit Event</button>
-                </form>
-              </div>
+              <div class="card-header bg-primary text-white float-start"><%=siteSettings.title%> Settings:</div>
+              <div class="card-header bg-primary text-white float-end"></div>
             </div>
 
-            <div class="card-body bg-info text-black"><%=data.date_event%></div>
-            <div class="clearfix bg-info">
-              <div class="card-body bg-info text-black float-start"><%=data.description%></div>
-              <div class="card-body bg-info text-black float-end"><b>Total Tickets: <%=data.num_tickets%></b></div>
-              <div class="card-body bg-info text-black float-end">
-                <b>Total Tickets Sold: <%=data.num_tickets_sold%></b>
-              </div>
-            </div>
+            <div class="clearfix bg-primary">
+              <form action="update_site_settings" method="post">
+                <div class="card-header bg-primary text-white float-start">Heading</div>
+                <div class="card-header bg-primary text-white float-start">
+                  <input
+                    id="id_settings_heading"
+                    type="text"
+                    size="20"
+                    name="heading"
+                    value="<%=siteSettings.heading%>"
+                  />
 
-            <div class="clearfix bg-secondary">
-              <div class="card-footer bg-secondary text-white float-start">Created On: <%=data.date_created %></div>
-              <div class="card-footer bg-secondary text-white float-end">Published On: <%=data.date_published %></div>
-            </div>
-            <div class="clearfix bg-secondary">
-              <div class="card-footer bg-secondary text-white float-start">Edited On: <%=data.date_edited %></div>
-              <div class="card-footer bg-secondary text-white float-end">
-                <form action="delete_event" method="post">
-                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
-                  <button type="submit" class="btn btn-danger">Delete Event(NO UNDO!)</button>
-                </form>
-              </div>
+                  <input type="hidden" name="name" value="<%=siteSettings.name%>" />
+                  description
+                  <input
+                    id="id_settings_desc"
+                    type="text"
+                    size="20"
+                    name="description"
+                    value="<%=siteSettings.description%>"
+                  />
+                </div>
+                <div class="card-header bg-primary text-white float-end">
+                  <button type="submit" class="btn btn-warning">Update</button>
+                </div>
+              </form>
             </div>
           </div>
 
