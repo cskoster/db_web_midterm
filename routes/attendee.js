@@ -102,6 +102,35 @@ router.get('/event/:event_id', function (req, res) {
   );
 });
 
+router.post("/make_booking", (req, res, next) => {
+  console.log("make Booking");
+
+
+  // let dateBooked = new Date();
+  // dateBooked = util.formatDate(dateBooked);
+  console.log(req.body.name, req.body.email, req.body.num_tickets);
+
+  // redirect to /booked
+  // display page
+
+  // query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
+  // query_parameters = [dateBooked, req.body.id];
+
+
+  // // Execute the query and send a confirmation message
+  // global.db.run(query, query_parameters,
+  //   function (err) {
+  //     if (err) {
+  //       console.log("ERROR")
+  //       next(err); //send the error on to the error handler
+  //     } else {
+  //       console.log(query_parameters);
+  //       res.redirect("/organizer/");
+  //       next(); // TODO: what do?
+  //     }
+  //   }
+  // );
+});
 
 
 module.exports = router;
