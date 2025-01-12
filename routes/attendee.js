@@ -107,8 +107,8 @@ router.post("/make_booking", (req, res, next) => {
   console.log("make Booking");
   let data = {};
 
-  // let dateBooked = new Date();
-  // dateBooked = util.formatDate(dateBooked);
+  let dateBooked = new Date();
+  dateBooked = util.formatDate(dateBooked);
   // console.log(req.body.name, req.body.email, req.body.num_tickets);
 
   data.name = req.body.name;
@@ -169,7 +169,7 @@ router.post("/make_booking", (req, res, next) => {
                         " user email : ", data.email,
                         " event_id: ", data.event_id,
                         " number_tickets: ", data.num_tickets,
-                        " date booked: ")
+                        " date booked: ", dateBooked)
 
 
 
