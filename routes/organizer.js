@@ -41,6 +41,7 @@ router.get("/", function (req, res) {
               // do something if error from lab: res.redirect("/");
               next(err); //send the error on to the error handler
             } else {
+              result.sort(compare);
               data.unPublished = result;
               // start new
               let queryPublished = 'SELECT * FROM events WHERE published == 1;';
@@ -52,6 +53,7 @@ router.get("/", function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
                     // add dat from query
+                    result.sort(compare);
                     data.published = result;
                     console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
@@ -324,6 +326,18 @@ router.post("/publish_event", (req, res, next) => {
   );
 });
 
+// taken from:
+//https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value/16174180#comment31549267_1129270
+// nice.
+function compare(a, b) {
+  if (a.date_event < b.date_event) {
+    return -1;
+  }
+  if (a.date_event > b.date_event) {
+    return 1;
+  }
+  return 0;
+}
 
 
 /**Pass in a date object i. dateObject = new Data() 

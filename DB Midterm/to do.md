@@ -125,7 +125,7 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 Bootstrap template stuff:
 - [x] add title and heading and description back to organizerHome
 - [x] Do Home page
-- [ ] Do site settings page
+- [x] Do site settings page
 
 at Site settings in instructions
 
@@ -144,6 +144,11 @@ ATTENDEE PAGE:
 - [x] ○ Events should be ordered by event date with the next event appearing at the
 - [x] top
 - [x] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
+- [ ] buy tickets
+- [ ] add on consessions: just add another form with eventid
+- [ ] sort events by date on org page
+- [ ] 
+
 
 TOTO: Nice to have
 - [ ] format date / time on pages split on "T"
