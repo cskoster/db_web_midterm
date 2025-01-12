@@ -134,7 +134,7 @@ https://www.geeksforgeeks.org/how-to-add-bootstrap-in-a-project/
 
 
 
-ATTENDEE PAGE:
+ATTENDEE HOME PAGE:
 
 - [x] ● A heading which indicates that this is the Attendee Home Page
 - [x] ● It should be accessed through a URL which is distinct from the Organiser Home Page
@@ -144,11 +144,28 @@ ATTENDEE PAGE:
 - [x] ○ Events should be ordered by event date with the next event appearing at the
 - [x] top
 - [x] ○ Clicking on an item in the list should take the user to the Attendee Event Page for that particular event
-- [ ] buy tickets
-- [ ] add on consessions: just add another form with eventid
-- [ ] sort events by date on org page
-- [ ] 
-
+ATTENDEE EVENT PAGE
+- [x] A heading which indicates that this is the Attendee Home Page
+- [x] ● It should be accessed through a URL which is distinct from the Organiser Home Page
+- [x] ● It should display the site name and description
+- [x] ● A list of published events
+- [ ] ○ The event title and date should be visible for each item
+- [ ] ○ Events should be ordered by event date with the next event appearing at the
+- [ ] top
+- [ ] ○ Clicking on an item in the list should take the user to the Attendee Event Page for
+- [ ] that particular event
+- [ ] Attendee Event Page:
+- [ ] This is where the attendee can view the details of events and make bookings. The minimum
+- [ ] requirements for the page are as follows:
+- [ ] ● A heading which indicates that this is the Attendee Event Page
+- [ ] ● It should display a single event determined by the url
+- [ ] ● It should display information about the event including title, description, date, ticket
+- [ ] types and ticket prices
+- [ ] ● The user should be able to select the number of each type of ticket they want to purchase
+- [ ] ● The user should enter their name
+- [ ] ● There should be a Book button which will book the tickets
+- [ ] ● Attendees should only be able to book as many tickets as are available
+- [ ] ● There should be a back button which redirects the user to the Attendee Home Page.
 
 TOTO: Nice to have
 - [ ] format date / time on pages split on "T"
