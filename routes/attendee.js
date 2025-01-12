@@ -86,7 +86,7 @@ router.get('/event/:event_id', function (req, res) {
 
               // console.log("R ", result)
               data.event = result[0];
-              // console.log(data);
+              console.log(data);
 
 
               res.render("attendeeEvent.ejs", data);

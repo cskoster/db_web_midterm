@@ -170,6 +170,9 @@ ATTENDEE EVENT PAGE
 TODO:
 - [ ] create ticket tabel with ticket info in new event
 - [ ] delete ticket info on del event
+- [ ] put back to home button on Attendee page
+- [ ] sitesettingpage add Edit Heading: to make more clear
+- [ ] on forms where the text id not alligned: check card-header card-*
 - [ ] 
 
 
