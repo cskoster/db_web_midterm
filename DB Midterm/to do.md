@@ -112,18 +112,20 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [x] sale  
 - [x] ○ Each event in the list should be accompanied by a link which points to its edit page  
 - [x] ○ For each event there should be a publish button. When pressed this should:  
-- [ ] ■ Update the event’s state from draft to published  
-- [ ] ■ Timestamp the publication date  
-- [ ] ■ Reload the page to display the updated information  
-- [ ] ○ For each event there should be a delete button. When pressed this should:  
-- [ ] ■ Remove the event from the database  
-- [ ] ■ Reload the page to display the updated information
+- [x] ■ Update the event’s state from draft to published  
+- [x] ■ Timestamp the publication date  
+- [x] ■ Reload the page to display the updated information  
+- [x] ○ For each event there should be a delete button. When pressed this should:  
+- [x] ■ Remove the event from the database  
+- [x] ■ Reload the page to display the updated information
 - [x] Edit event Org page button
-- [ ] bootstrap Edit Event Page
+- [x] bootstrap Edit Event Page
 
 
 Bootstrap template stuff:
 - [ ] add title and heading and description back to organizerHome
+- [ ] Do Home page
+- [ ] Do site settings page
 
 at Site settings in instructions
 
