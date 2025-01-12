@@ -54,7 +54,7 @@ router.get("/", function (req, res) {
                   } else {
                     // add dat from query
                     data.published = result;
-                    ///console.log("HOME: ", data);
+                    console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -219,7 +219,7 @@ router.post("/update_event", (req, res, next) => {
     req.body.published = 0;
   }
 
-  c//onsole.log("ID: ", req.body.id)
+  //console.log("ID: ", req.body.id)
 
   let dateEdited = new Date();
   dateEdited = formatDate(dateEdited);
