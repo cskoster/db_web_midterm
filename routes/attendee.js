@@ -114,6 +114,12 @@ router.post("/make_booking", (req, res, next) => {
   data.email = req.body.email;
   data.num_tickets = req.body.num_tickets;
 
+  // lookup name / email in tables if exist, check if event is booked
+
+  // else create email / name in db
+
+  // make booking
+
 
   let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
   global.db.all(query,
