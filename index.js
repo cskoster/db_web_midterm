@@ -14,6 +14,10 @@ app.set('view engine', 'ejs'); // set the app to use ejs for rendering
 
 app.use(express.static(__dirname + '/public')); // set location of static files
 
+// npm bootstrap
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+
 // Set up SQLite
 // Items in the global namespace are accessible through out the node application
 const sqlite3 = require('sqlite3').verbose();

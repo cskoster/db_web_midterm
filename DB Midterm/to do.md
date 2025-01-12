@@ -149,7 +149,9 @@ TOTO: Nice to have
 - [ ] format date / time on pages split on "T"
 - [ ] make sure all Date() is formated
 
-
+OTHER:
+- [ ] What does (next) do?
+- [ ] 
 
 
 TODO: remove write pemissions from the site_settings table so title and name dont change
