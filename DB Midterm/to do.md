@@ -167,6 +167,15 @@ ATTENDEE EVENT PAGE
 - [ ] ● Attendees should only be able to book as many tickets as are available
 - [x] ● There should be a back button which redirects the user to the Attendee Home Page.
 
+TODO:
+- [ ] create ticket tabel with ticket info in new event
+- [ ] delete ticket info on del event
+- [ ] 
+
+
+
+
+
 TOTO: Nice to have
 - [ ] format date / time on pages split on "T"
 - [ ] make sure all Date() is formated
