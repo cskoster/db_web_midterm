@@ -115,7 +115,7 @@ router.post("/make_booking", (req, res, next) => {
   data.num_tickets = req.body.num_tickets;
 
 
-  let query = "SELECT title, description, heading FROM site_settings where name='create_event_page'";
+  let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
   global.db.all(query,
     function (err, result) {
       if (err) {
