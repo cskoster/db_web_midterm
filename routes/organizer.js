@@ -201,7 +201,7 @@ router.post("/edit_event", function (req, res) {
             } else {
 
               data.event = result[0]; // only 1. searched by id
-              //console.log("DATA: ", data);
+              console.log("DATA: ", data);
               res.render("organizerEditEvent.ejs", data)
             }
           }
