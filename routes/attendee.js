@@ -218,46 +218,36 @@ router.post("/make_booking", (req, res, next) => {
                                         // do something if error from lab: res.redirect("/");
                                         next(err); //send the error on to the error handler
                                       } else {
-                                        console.log("Worked!")
+                                        console.log("Worked!");
 
+
+                                        let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
+                                        global.db.all(query,
+                                          function (err, result) {
+                                            if (err) {
+
+                                              // do something if error from lab: res.redirect("/");
+                                              next(err); //send the error on to the error handler
+                                            } else {
+
+                                              data.page = result[0]; // only one page with this name. db constraint
+                                              console.log(data);
+                                              res.render("attendeeBooked", data);
+                                            }
+                                          }
+                                        );
                                       }
                                     });
                                 }
                               }
                             );
-
-
-
-                            // // GOT THE event_id, the user_id
-                            // console.log("HERE: ", data);
-                            // console.log("user_id: ", data.nameLookup.user_id,
-                            //   "  email_account_id: ", data.email_account_id, // dont have
-                            //   " event_id: ", data.event_id,
-                            //   " number_tickets: ", data.num_tickets,
-                            //   " date booked: ", dateBooked);
-
-
-                            // // back to this later
-                            // // let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
-                            // // let query_parameters = [data.nameLookup.user_id, data.event_id, data.num_tickets, dateBooked];
-                            // // global.db.all(query, query_parameters,
-                            // //   function (err, result) {
-                            // //     if (err) {
-
-                            // //       // do something if error from lab: res.redirect("/");
-                            // //       next(err); //send the error on to the error handler
-                            // //     } else {
-                            // //       console.log("Worked!")
-
-                            // //     }
-                            // //   });
                           }
                         }
                       );
                     }
                   });
               };
-            }); // done: INSERT into users
+            });
         }
 
 
@@ -267,21 +257,21 @@ router.post("/make_booking", (req, res, next) => {
 
 
 
-        let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
-        global.db.all(query,
-          function (err, result) {
-            if (err) {
+        // let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
+        // global.db.all(query,
+        //   function (err, result) {
+        //     if (err) {
 
-              // do something if error from lab: res.redirect("/");
-              next(err); //send the error on to the error handler
-            } else {
+        //       // do something if error from lab: res.redirect("/");
+        //       next(err); //send the error on to the error handler
+        //     } else {
 
-              data.page = result[0]; // only one page with this name. db constraint
-              //console.log(data);
-              res.render("attendeeBooked", data);
-            }
-          }
-        );
+        //       data.page = result[0]; // only one page with this name. db constraint
+        //       //console.log(data);
+        //       res.render("attendeeBooked", data);
+        //     }
+        //   }
+        // );
       }
     });
 });
