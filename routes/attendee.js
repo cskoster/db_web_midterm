@@ -8,6 +8,7 @@
 
 const express = require("express");
 const router = express.Router();
+const util = require('./utils');
 
 
 // Attendee Home
@@ -35,7 +36,7 @@ router.get("/", function (req, res) {
               next(err); //send the error on to the error handler
             } else {
 
-              result.sort(compare);
+              result.sort(util.compare);
               data.published = result;
               res.render("attendeeHome.ejs", data)
             }
@@ -106,18 +107,6 @@ router.get('/event/:event_id', function (req, res) {
   );
 });
 
-// taken from:
-//https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value/16174180#comment31549267_1129270
-// nice.
-function compare(a, b) {
-  if (a.date_event < b.date_event) {
-    return -1;
-  }
-  if (a.date_event > b.date_event) {
-    return 1;
-  }
-  return 0;
-}
 
 
 module.exports = router;

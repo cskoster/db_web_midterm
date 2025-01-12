@@ -11,6 +11,8 @@
 const express = require("express");
 const router = express.Router();
 
+// Sort and date helpers
+const util = require('./utils');
 
 // Organizer Home
 router.get("/", function (req, res) {
@@ -41,7 +43,7 @@ router.get("/", function (req, res) {
               // do something if error from lab: res.redirect("/");
               next(err); //send the error on to the error handler
             } else {
-              result.sort(compare);
+              result.sort(util.compare);
               data.unPublished = result;
               // start new
               let queryPublished = 'SELECT * FROM events WHERE published == 1;';
@@ -52,8 +54,8 @@ router.get("/", function (req, res) {
                     // do something if error from lab: res.redirect("/");
                     next(err); //send the error on to the error handler
                   } else {
-                    // add dat from query
-                    result.sort(compare);
+
+                    result.sort(util.compare);
                     data.published = result;
                     console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
@@ -169,7 +171,7 @@ router.post("/create_event", (req, res, next) => {
 
   let dateEdited = new Date();
 
-  dateEdited = formatDate(dateEdited);
+  dateEdited = util.formatDate(dateEdited);
   let dateCreated = dateEdited;
 
   let query = "INSERT INTO events (title, description,  date_created, published, date_event, date_edited, date_published, num_tickets,num_tickets_sold ) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -245,7 +247,7 @@ router.post("/update_event", (req, res, next) => {
   //console.log("ID: ", req.body.id)
 
   let dateEdited = new Date();
-  dateEdited = formatDate(dateEdited);
+  dateEdited = util.formatDate(dateEdited);
 
   // HERE:
   /*
@@ -304,7 +306,7 @@ router.post("/delete_event", (req, res, next) => {
 router.post("/publish_event", (req, res, next) => {
   console.log("publish")
   let datePublished = new Date();
-  datePublished = formatDate(datePublished);
+  datePublished = util.formatDate(datePublished);
 
 
   query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
@@ -325,31 +327,6 @@ router.post("/publish_event", (req, res, next) => {
     }
   );
 });
-
-// taken from:
-//https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value/16174180#comment31549267_1129270
-// nice.
-function compare(a, b) {
-  if (a.date_event < b.date_event) {
-    return -1;
-  }
-  if (a.date_event > b.date_event) {
-    return 1;
-  }
-  return 0;
-}
-
-
-/**Pass in a date object i. dateObject = new Data() 
- * Returns date in: yyyy-mm-ddThh:mm format
-*/
-function formatDate(dateObject) {
-  let d = dateObject.toJSON();
-
-  let splitDate = d.split(":");
-  let newDate = splitDate[0] + ":" + splitDate[1];
-  return newDate;
-}
 
 
 
