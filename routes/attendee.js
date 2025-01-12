@@ -142,11 +142,10 @@ router.post("/make_booking", (req, res, next) => {
                 next(err); //send the error on to the error handler
               } else {
 
-                // get users.id from data.name, put into data.nameLookup
+                // NEED TO PUT THE EMAIL ADDRESS IN NOW
 
 
                 let query = "SELECT user_id from users where user_name=?";
-                // console.log("USERNAME: ", userName);
                 let query_parameters = [userName];
 
                 global.db.all(query, query_parameters,
@@ -158,23 +157,37 @@ router.post("/make_booking", (req, res, next) => {
                     } else {
 
                       data.nameLookup = result[0]; // only one page with this name. db constraint
-                      // console.log("ccccc: ", data);
-                      //res.render("attendeeBooked", data);
 
-                      // if we are here the name and id are in data.nameLookup
+
+                      // insert into email_accounts
+
+
+
+
+                      // get the email_account_id
+
 
                       // GOT THE event_id, the user_id
-                      // console.log("HERE: ", data);
+                      console.log("HERE: ", data);
                       console.log("user_id: ", data.nameLookup.user_id,
-                        " user email : ", data.email,
+                        "  email_account_id: ", data.email_account_id, // dont have
                         " event_id: ", data.event_id,
                         " number_tickets: ", data.num_tickets,
-                        " date booked: ", dateBooked)
+                        " date booked: ", dateBooked);
 
+                      let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
+                      let query_parameters = [data.nameLookup.user_id, data.event_id, data.num_tickets, dateBooked];
+                      global.db.all(query, query_parameters,
+                        function (err, result) {
+                          if (err) {
 
+                            // do something if error from lab: res.redirect("/");
+                            next(err); //send the error on to the error handler
+                          } else {
+                            console.log("Worked!")
 
-
-
+                          }
+                        });
                     }
                   }
                 );
