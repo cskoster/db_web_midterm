@@ -110,11 +110,17 @@ router.post("/make_booking", (req, res, next) => {
   let dateBooked = new Date();
   dateBooked = util.formatDate(dateBooked);
   // console.log(req.body.name, req.body.email, req.body.num_tickets);
+  //console.log("BODY: ", req.body);
 
   data.name = req.body.name;
+
   data.email = req.body.email;
   data.num_tickets = req.body.num_tickets;
   data.event_id = req.body.event_id;
+
+  data.event_title = req.body.event_title;
+  data.description = req.body.event_description;
+
   let userName = req.body.name;
   let query = "SELECT * FROM email_accounts INNER JOIN users ON email_accounts.user_id = users.user_id WHERE user_name=?;";
   let query_parameters = [userName];

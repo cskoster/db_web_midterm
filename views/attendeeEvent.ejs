@@ -60,6 +60,20 @@
             <div class="clearfix bg-secondary">
               <form action="../make_booking" method="post">
                 <input type="hidden" id="event_<%=event.id%>" name="event_id" value="<%=event.id%>" />
+                <input type="hidden" id="event_title<%=event.title%>" name="event_title" value="<%=event.title%>" />
+                <input
+                  type="hidden"
+                  id="event_description<%=event.description%>"
+                  name="event_description"
+                  value="<%=event.description%>"
+                />
+                <input
+                  type="hidden"
+                  id="event_date_event<%=event.date_event%>"
+                  name="event_date_event"
+                  value="<%=event.date_event%>"
+                />
+
                 <div class="clearfix bg-secondary">
                   <div class="card-body bg-secondary text-white float-start">Enter Name:</div>
                   <div class="card-body bg-secondary text-white float-start">
