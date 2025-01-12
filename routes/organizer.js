@@ -230,15 +230,12 @@ router.post("/update_event", (req, res, next) => {
   WE must redo the create event to ask for date in yyyy-mm-dd formatm and a separate field
   for hh:mm format.
 
-  Then put them together in the yyy-mm-ddThh:mm format and store in db,
+  Just pass the string for new
 
-  For placeholder, split again.
-
-  Or dont let them change the date.
   */
 
   // ok this is what the form sent
-  console.log("here:", req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id);
+  //  console.log("here:", req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id);
 
 
   query = "UPDATE events SET title= ?, description=?, date_edited=?, date_event=? , num_tickets=? WHERE id=?;";
@@ -259,10 +256,35 @@ router.post("/update_event", (req, res, next) => {
     }
   );
 });
+
+router.post("/delete_event", (req, res, next) => {
+
+
+  query = "DELETE FROM events WHERE id=?;";
+  query_parameters = [req.body.id];
+
+
+  // Execute the query and send a confirmation message
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        console.log("ERROR")
+        next(err); //send the error on to the error handler
+      } else {
+        console.log(query_parameters);
+        res.redirect("/organizer/");
+        next(); // TODO: what do?
+      }
+    }
+  );
+});
+
+
+
+
 /**Pass in a date object i. dateObject = new Data() 
  * Returns date in: yyyy-mm-ddThh:mm format
 */
-
 function formatDate(dateObject) {
   let d = dateObject.toJSON();
 

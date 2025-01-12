@@ -75,7 +75,10 @@
             </div>
             <div class="clearfix bg-secondary">
               <div class="card-footer bg-secondary text-white float-end">
-                <button type="button" class="btn btn-danger">Delete Event</button>
+                <form action="delete_event" method="post">
+                  <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                  <button type="submit" class="btn btn-danger">Delete Event(NO UNDO!)</button>
+                </form>
               </div>
             </div>
           </div>
@@ -120,7 +123,10 @@
                   <button type="button" class="btn btn-warning">Publish event</button>
                 </div>
                 <div class="card-footer bg-secondary text-white float-end">
-                  <button type="button" class="btn btn-danger">Delete Event</button>
+                  <form action="delete_event" method="post">
+                    <input type="hidden" id="event_<%=data.id%>" name="id" value="<%=data.id%>" />
+                    <button type="submit" class="btn btn-danger">Delete Event(NO UNDO!)</button>
+                  </form>
                 </div>
               </div>
             </div>
