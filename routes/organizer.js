@@ -258,8 +258,6 @@ router.post("/update_event", (req, res, next) => {
 });
 
 router.post("/delete_event", (req, res, next) => {
-
-
   query = "DELETE FROM events WHERE id=?;";
   query_parameters = [req.body.id];
 
@@ -279,6 +277,27 @@ router.post("/delete_event", (req, res, next) => {
   );
 });
 
+
+router.post("/publish_event", (req, res, next) => {
+  console.log("publish")
+  query = "UPDATE events SET published=1  WHERE id=?;";
+  query_parameters = [req.body.id];
+
+
+  // Execute the query and send a confirmation message
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        console.log("ERROR")
+        next(err); //send the error on to the error handler
+      } else {
+        console.log(query_parameters);
+        res.redirect("/organizer/");
+        next(); // TODO: what do?
+      }
+    }
+  );
+});
 
 
 
