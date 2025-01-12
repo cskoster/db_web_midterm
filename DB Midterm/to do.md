@@ -63,7 +63,7 @@
 - [x] make event table
 - [x] make add event form to edit events
 - [x] update db from edit events
-- [ ] update db publish from editEvents
+- [x] update db publish from editEvents
 - [x] add date created on to records
 
 - [ ] adding validation for siteSetting form for organizer home
@@ -103,15 +103,15 @@ Yes, like so { data: { arrayStuff: […], yourString: “Hello World” }}
 - [x] sale  
 - [x] ○ For each event the list should display a sharing link which points to the  
 - [x] relevant Attendee Home Page  
-- [ ] ○ For each event there should be a delete button. When pressed this should:  
-- [ ] ■ Remove the event from the database  
-- [ ] ■ Reload the page to display the updated information  
-- [ ] ● It should display a dynamically populated list of draft events  
+- [x] ○ For each event there should be a delete button. When pressed this should:  
+- [x] ■ Remove the event from the database  
+- [x] ■ Reload the page to display the updated information  
+- [x] ● It should display a dynamically populated list of draft events  
 - [x] ○ The list should display useful information about the events including the title, date,  
 - [x] when they were created and published and the number of each type of ticket for  
 - [x] sale  
-- [ ] ○ Each event in the list should be accompanied by a link which points to its edit page  
-- [ ] ○ For each event there should be a publish button. When pressed this should:  
+- [x] ○ Each event in the list should be accompanied by a link which points to its edit page  
+- [x] ○ For each event there should be a publish button. When pressed this should:  
 - [ ] ■ Update the event’s state from draft to published  
 - [ ] ■ Timestamp the publication date  
 - [ ] ■ Reload the page to display the updated information  

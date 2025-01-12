@@ -219,7 +219,7 @@ router.post("/update_event", (req, res, next) => {
     req.body.published = 0;
   }
 
-  console.log("ID: ", req.body.id)
+  c//onsole.log("ID: ", req.body.id)
 
   let dateEdited = new Date();
   dateEdited = formatDate(dateEdited);
@@ -280,8 +280,12 @@ router.post("/delete_event", (req, res, next) => {
 
 router.post("/publish_event", (req, res, next) => {
   console.log("publish")
-  query = "UPDATE events SET published=1  WHERE id=?;";
-  query_parameters = [req.body.id];
+  let datePublished = new Date();
+  datePublished = formatDate(datePublished);
+
+
+  query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
+  query_parameters = [datePublished, req.body.id];
 
 
   // Execute the query and send a confirmation message
