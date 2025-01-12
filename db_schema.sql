@@ -232,4 +232,17 @@ VALUES (
     0
   );
 
+CREATE TABLE IF NOT EXISTS bookings (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email_account_id INTEGER,
+  -- get name from email_accounts
+  -- the event being booked
+  event_id INT NOT NULL,
+  num_tickets INT NOT NULL,
+  date_booked TEXT NOT NULL,
+  --the user that the email account belongs to
+  FOREIGN KEY (email_account_id) REFERENCES email_accounts(email_account_id),
+  FOREIGN KEY (event_id) REFERENCES EVENTS(id)
+);
+
 COMMIT;

@@ -113,6 +113,16 @@ router.post("/make_booking", (req, res, next) => {
   // redirect to /booked
   // display page
 
+  // lookup name / email in users / email tables
+  //if no exist put in
+
+  // check if name /email is in booking table. if is message "already booked"
+
+  // if not add to table
+
+  // redirect to booked page
+
+
   // query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
   // query_parameters = [dateBooked, req.body.id];
 
