@@ -27,15 +27,15 @@
           <% siteSettings.forEach((siteSettings) => {%>
 
           <div class="card">
-            <div class="clearfix bg-primary">
+            <div class="clearfix bg-secondary">
               <div class="card-header bg-primary text-white float-start"><%=siteSettings.title%> Settings:</div>
-              <div class="card-header bg-primary text-white float-end"></div>
             </div>
 
-            <div class="clearfix bg-primary">
+            <div class="clearfix bg-secondary">
               <form action="update_site_settings" method="post">
-                <div class="card-header bg-primary text-white float-start">Heading</div>
-                <div class="card-header bg-primary text-white float-start">
+                <input type="hidden" name="name" value="<%=siteSettings.name%>" />
+                <div class="card-header bg-secondary text-white float-start"><b>Heading</b></div>
+                <div class="card-header bg-secondary text-white float-start">
                   <input
                     id="id_settings_heading"
                     type="text"
@@ -44,8 +44,7 @@
                     value="<%=siteSettings.heading%>"
                   />
 
-                  <input type="hidden" name="name" value="<%=siteSettings.name%>" />
-                  description
+                  <b>Description:</b>
                   <input
                     id="id_settings_desc"
                     type="text"
@@ -54,7 +53,7 @@
                     value="<%=siteSettings.description%>"
                   />
                 </div>
-                <div class="card-header bg-primary text-white float-end">
+                <div class="card-header bg-secondary text-white float-end">
                   <button type="submit" class="btn btn-warning">Update</button>
                 </div>
               </form>
@@ -66,29 +65,5 @@
         </div>
       </div>
     </div>
-
-    <% siteSettings.forEach( (siteSettings) => { %>
-    <p><b><%=siteSettings.title %> Settings</b></p>
-    <!-- data.name data.title are not to be changed  -->
-    <form action="update_site_settings" method="post">
-      <p>
-        Heading:
-        <input id="id_settings_heading" type="text" size="20" name="heading" value="<%=siteSettings.heading%>" />
-      </p>
-
-      <p>
-        Description:<input
-          id="id_settings_desc"
-          type="text"
-          size="20"
-          name="description"
-          value="<%=siteSettings.description%>"
-        />
-      </p>
-      <button type="submit">Update the <%=siteSettings.title %></button>
-      <input type="hidden" name="name" value="<%=siteSettings.name%>" />
-    </form>
-
-    <% }); %>
   </body>
 </html>
