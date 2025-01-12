@@ -156,12 +156,12 @@ router.post("/make_booking", (req, res, next) => {
 
                       data.nameLookup = result[0]; // only one page with this name. db constraint
 
-                      console.log("HERE: ", data);
-                      console.log("user_id: ", data.nameLookup.user_id,
-                        "  email_account_id: ", data.email_account_id, // dont have
-                        " event_id: ", data.event_id,
-                        " number_tickets: ", data.num_tickets,
-                        " date booked: ", dateBooked);
+                      // console.log("HERE: ", data);
+                      // console.log("user_id: ", data.nameLookup.user_id,
+                      //   "  email_account_id: ", data.email_account_id, // dont have
+                      //   " event_id: ", data.event_id,
+                      //   " number_tickets: ", data.num_tickets,
+                      //   " date booked: ", dateBooked);
 
                       // insert into email_accounts
                       let query = "INSERT INTO email_accounts (user_id, email_address) VALUES (?,?)";
@@ -180,13 +180,16 @@ router.post("/make_booking", (req, res, next) => {
                             // get the email_account_id
 
 
+                            
+
+
                             // GOT THE event_id, the user_id
-                            // console.log("HERE: ", data);
-                            // console.log("user_id: ", data.nameLookup.user_id,
-                            //   "  email_account_id: ", data.email_account_id, // dont have
-                            //   " event_id: ", data.event_id,
-                            //   " number_tickets: ", data.num_tickets,
-                            //   " date booked: ", dateBooked);
+                            console.log("HERE: ", data);
+                            console.log("user_id: ", data.nameLookup.user_id,
+                              "  email_account_id: ", data.email_account_id, // dont have
+                              " event_id: ", data.event_id,
+                              " number_tickets: ", data.num_tickets,
+                              " date booked: ", dateBooked);
 
 
                             // back to this later
