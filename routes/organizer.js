@@ -238,26 +238,26 @@ router.post("/update_event", (req, res, next) => {
   */
 
   // ok this is what the form sent
-  console.log("here:", req.body.title, req.body.description, req.body, date_event, req.body.date_event, req.body.num_tickets, req.body.id);
+  console.log("here:", req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id);
 
 
-  query = "UPDATE events SET title= ?, description=?, date_edited=?, date_event, num_tickets=?, WHERE id=?;";
-  query_parameters = [req.body.title, req.body.description, dateEdited, req.body.num_tickets, req.body.id];
+  query = "UPDATE events SET title= ?, description=?, date_edited=?, date_event=? , num_tickets=? WHERE id=?;";
+  query_parameters = [req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id];
 
 
   // Execute the query and send a confirmation message
-  // global.db.run(query, query_parameters,
-  //   function (err) {
-  //     if (err) {
-  //       console.log("ERROR")
-  //       next(err); //send the error on to the error handler
-  //     } else {
-  //       console.log(query_parameters);
-  //       res.redirect("/organizer/");
-  //       //next(); // TODO: what do?
-  //     }
-  //   }
-  // );
+  global.db.run(query, query_parameters,
+    function (err) {
+      if (err) {
+        console.log("ERROR")
+        next(err); //send the error on to the error handler
+      } else {
+        console.log(query_parameters);
+        res.redirect("/organizer/");
+        //next(); // TODO: what do?
+      }
+    }
+  );
 });
 /**Pass in a date object i. dateObject = new Data() 
  * Returns date in: yyyy-mm-ddThh:mm format
