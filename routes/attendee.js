@@ -113,16 +113,12 @@ router.post("/make_booking", (req, res, next) => {
   data.name = req.body.name;
   data.email = req.body.email;
   data.num_tickets = req.body.num_tickets;
+  let userName = req.body.name;
 
-  // lookup name / email in tables if exist, check if event is booked
+  let query = "SELECT * FROM email_accounts INNER JOIN users ON email_accounts.user_id = users.user_id WHERE user_name=?;";
+  let query_parameters = [userName];
 
-  // else create email / name in db
-
-  // make booking
-
-
-  let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
-  global.db.all(query,
+  global.db.all(query, query_parameters,
     function (err, result) {
       if (err) {
 
@@ -130,17 +126,70 @@ router.post("/make_booking", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
 
-        data.page = result[0]; // only one page with this name. db constraint
-        console.log(data);
-        res.render("attendeeBooked", data);
+        data.nameLookup = result; // only one page with this name. db constraint
+
+        if (data.nameLookup.length == 0) {
+          let query = "INSERT into users (user_name) VALUES (?)";
+          let query_parameters = [data.name];
+
+          // INSERT new user
+          global.db.all(query, query_parameters,
+            function (err, result) {
+              if (err) {
+
+                // do something if error from lab: res.redirect("/");
+                next(err); //send the error on to the error handler
+              } else {
+
+                // get users.id from data.name, put into data.nameLookup
+
+
+                let query = "SELECT user_id from users where user_name=?";
+                console.log("USERNAME: ", userName);
+                let query_parameters = [userName];
+
+                global.db.all(query, query_parameters,
+                  function (err, result) {
+                    if (err) {
+
+                      // do something if error from lab: res.redirect("/");
+                      next(err); //send the error on to the error handler
+                    } else {
+
+                      data.nameLookup = result; // only one page with this name. db constraint
+                      console.log("HERE: ", data);
+                      //res.render("attendeeBooked", data);
+                    }
+                  }
+                );
+              }
+            }
+          );
+        } // done: INSERT into users
+
+        // if we are here the name and id are in data.nameLookup
+
+        // GOT THE FUCKING ID!
+
+
+
+        let query = "SELECT title, description, heading FROM site_settings where name='attendee_booked_page'";
+        global.db.all(query,
+          function (err, result) {
+            if (err) {
+
+              // do something if error from lab: res.redirect("/");
+              next(err); //send the error on to the error handler
+            } else {
+
+              data.page = result[0]; // only one page with this name. db constraint
+              console.log(data);
+              res.render("attendeeBooked", data);
+            }
+          }
+        );
       }
-    }
-  );
-
-
-
-
+    });
 });
-
 
 module.exports = router;
