@@ -201,27 +201,27 @@ router.post("/make_booking", (req, res, next) => {
                                   data.email_account_id = result[0].email_account_id;
 
                                   // console.log("HERE: ", data);
-                                  console.log("user_id: ", data.nameLookup.user_id,
-                                    "  email_account_id: ", data.email_account_id, // dont have
-                                    " event_id: ", data.event_id,
-                                    " number_tickets: ", data.num_tickets,
-                                    " date booked: ", dateBooked);
+                                  // console.log("user_id: ", data.nameLookup.user_id,
+                                  //   "  email_account_id: ", data.email_account_id, // dont have
+                                  //   " event_id: ", data.event_id,
+                                  //   " number_tickets: ", data.num_tickets,
+                                  //   " date booked: ", dateBooked);
 
 
                                   // back to this later
-                                  // let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
-                                  // let query_parameters = [data.nameLookup.user_id, data.event_id, data.num_tickets, dateBooked];
-                                  // global.db.all(query, query_parameters,
-                                  //   function (err, result) {
-                                  //     if (err) {
+                                  let query = "INSERT INTO bookings (email_account_id, event_id,num_tickets,date_booked) VALUES (?,?,?,?)";
+                                  let query_parameters = [data.email_account_id, data.event_id, data.num_tickets, dateBooked];
+                                  global.db.all(query, query_parameters,
+                                    function (err, result) {
+                                      if (err) {
 
-                                  //       // do something if error from lab: res.redirect("/");
-                                  //       next(err); //send the error on to the error handler
-                                  //     } else {
-                                  //       console.log("Worked!")
+                                        // do something if error from lab: res.redirect("/");
+                                        next(err); //send the error on to the error handler
+                                      } else {
+                                        console.log("Worked!")
 
-                                  //     }
-                                  //   });
+                                      }
+                                    });
                                 }
                               }
                             );
