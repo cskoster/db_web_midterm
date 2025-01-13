@@ -31,22 +31,37 @@
       <div class="container-fluid">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="/attendee">Attendee Home</a>
+            <a class="nav-link active" href="/">Home Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/organizer/siteSettings">Site Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#published">Published Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#unpublished">Unpublished Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/organizer/create_event">Create New Event</a>
           </li>
         </ul>
       </div>
     </nav>
-
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header bg-primary text-white"><%=name%> You are booked!</div>
-            <div class="card-body bg-info text-black">An email has been sent to: <%=email%></div>
+            <div class="card-header bg-primary text-white"><%=event.title%></div>
+            <div class="card-body bg-info text-black">Event Date: <%=event.date_event%></div>
             <div class="clearfix bg-info">
-              <div class="card-body bg-info text-black float-start">Event: <%=description%></div>
-              <div class="card-body bg-info text-black float-end"><b>Number Tickets bought: <%=num_tickets%></b></div>
+              <div class="card-body bg-info text-black float-start"><%=event.description%></div>
+              <div class="card-body bg-info text-black float-end"><b>Total Tickets: <%=event.num_tickets%></b></div>
+              <div class="card-body bg-info text-black float-end">
+                <b>Total Tickets Sold: <%=event.num_tickets_sold%></b>
+              </div>
             </div>
+            <div class="card-footer bg-secondary text-white">Last edited: <%=event.date_edited %></div>
           </div>
           <br />
         </div>

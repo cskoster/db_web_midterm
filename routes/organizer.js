@@ -57,7 +57,7 @@ router.get("/", function (req, res) {
 
                     result.sort(util.compare);
                     data.published = result;
-                    console.log("HOME: ", data);
+                    // console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
                   }
                 });
@@ -335,45 +335,45 @@ router.get('/view_bookings/:event_id', function (req, res) {
   let data = {};
 
   // // there is a ':' in front. TODO: why?
-  // let event_id = req.params.event_id[1];
-  // data.event_id = event_id;
+  let event_id = req.params.event_id[1];
+  data.event_id = event_id;
 
 
   console.log("View booking");
 
-  // let query = "SELECT title, description, heading FROM site_settings where name='attendee_events_page'";
-  // // Execute the query and render the page with the results
-  // global.db.all(query,
-  //   function (err, result) {
-  //     if (err) {
-  //       next(err); //send the error on to the error handler
-  //     } else {
+  let query = "SELECT title, description, heading FROM site_settings where name='organizer_view_bookings'";
+  // Execute the query and render the page with the results
+  global.db.all(query,
+    function (err, result) {
+      if (err) {
+        next(err); //send the error on to the error handler
+      } else {
 
-  //       // site related templates
-  //       data.page = result[0];
-  //       // start new
+        // site related templates
+        data.page = result[0];
+        // start new
 
-  //       // console.log(event_id)
-  //       let queryEvent = 'SELECT * FROM events WHERE id == "' + event_id + '";';
+        // console.log(event_id)
+        let queryEvent = 'SELECT * FROM events WHERE id == "' + event_id + '";';
 
-  //       // console.log("Q: ", queryEvent);
-  //       global.db.all(queryEvent,
-  //         function (err, result) {
-  //           if (err) {
+        // console.log("Q: ", queryEvent);
+        global.db.all(queryEvent,
+          function (err, result) {
+            if (err) {
 
-  //             // do something if error from lab: res.redirect("/");
-  //             next(err); //send the error on to the error handler
-  //           } else {
-  //             data.event = result[0];
-  //             // console.log("Event data:", data);
+              // do something if error from lab: res.redirect("/");
+              next(err); //send the error on to the error handler
+            } else {
+              data.event = result[0];
+              console.log("Event data:", data);
 
-  //             res.render("organizerViewBooking.ejs", data);
-  //           }
-  //         });
-  //     }
-  //   }
+              res.render("organizerViewBooking.ejs", data);
+            }
+          });
+      }
+    }
 
-  // );
+  );
 });
 
 

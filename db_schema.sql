@@ -115,6 +115,14 @@ VALUES (
     'attendee_booked_page'
   );
 
+INSERT INTO site_settings ('title', 'heading', 'description', 'name')
+VALUES (
+    'Event Bookings',
+    'View Event Bookings',
+    'All Bookings for event',
+    'organizer_view_bookings'
+  );
+
 -- Create Event Table
 CREATE TABLE IF NOT EXISTS "events" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT,
