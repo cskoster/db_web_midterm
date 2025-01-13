@@ -218,10 +218,8 @@ router.post("/delete_event", (req, res, next) => {
   global.db.run(query, query_parameters,
     function (err) {
       if (err) {
-        console.log("ERROR")
         next(err); //send the error on to the error handler
       } else {
-        console.log(query_parameters);
         res.redirect("/organizer/");
       }
     }); // End delete query
@@ -232,7 +230,6 @@ router.post("/publish_event", (req, res, next) => {
   let datePublished = new Date();
   datePublished = util.formatDate(datePublished);
 
-
   query = "UPDATE events SET published=1, date_published=?  WHERE id=?;";
   query_parameters = [datePublished, req.body.id];
 
@@ -241,11 +238,10 @@ router.post("/publish_event", (req, res, next) => {
   global.db.run(query, query_parameters,
     function (err) {
       if (err) {
-        console.log("ERROR")
         next(err); //send the error on to the error handler
       } else {
         res.redirect("/organizer/");
-        next(); // TODO: what do?
+        next();
       }
     }
   );
@@ -253,16 +249,12 @@ router.post("/publish_event", (req, res, next) => {
 
 
 
-
+// View a booking
 router.get('/view_bookings/:event_id', function (req, res) {
   let data = {};
 
-  // // there is a ':' in front. TODO: why?
   let event_id = req.params.event_id[1];
   data.event_id = event_id;
-
-
-  console.log("View booking");
 
   let query = "SELECT title, description, heading FROM site_settings where name='organizer_view_bookings'";
   // Execute the query and render the page with the results
@@ -276,10 +268,7 @@ router.get('/view_bookings/:event_id', function (req, res) {
         data.page = result[0];
         // start new
 
-        // console.log(event_id)
         let queryEvent = 'SELECT * FROM events WHERE id == "' + event_id + '";';
-
-        // console.log("Q: ", queryEvent);
         global.db.all(queryEvent,
           function (err, result) {
             if (err) {
@@ -288,14 +277,8 @@ router.get('/view_bookings/:event_id', function (req, res) {
               next(err); //send the error on to the error handler
             } else {
               data.event = result[0];
-              // console.log("Event data:", data);
 
-
-              //let queryView = 'SELECT * FROM events WHERE id == "' + event_id + '";';
               let query = 'SELECT * from booking_view where event_id="' + event_id + '";';
-              //console.log(query);
-
-              // console.log("Q: ", queryEvent);
               global.db.all(query,
                 function (err, result) {
                   if (err) {
@@ -304,35 +287,14 @@ router.get('/view_bookings/:event_id', function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
 
-
                     data.view = result;
-
-
-
-                    //console.log(data);
                     res.render("organizerViewBooking.ejs", data);
                   }
-
-
-
-                });
-
-
-              //              res.render("organizerViewBooking.ejs", data);
+                }); // End booking SELECT query
             }
-
-
-
-          });
+          }); // End events query
       }
-    }
-
-  );
+    }); // End site settings query
 });
-
-
-
-
-
 
 module.exports = router;
