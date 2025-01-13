@@ -370,7 +370,7 @@ router.get('/view_bookings/:event_id', function (req, res) {
 
               //let queryView = 'SELECT * FROM events WHERE id == "' + event_id + '";';
               let query = 'SELECT * from booking_view where event_id="' + event_id + '";';
-              console.log(query);
+              //console.log(query);
 
               // console.log("Q: ", queryEvent);
               global.db.all(query,
@@ -381,9 +381,9 @@ router.get('/view_bookings/:event_id', function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
 
-                    console.log(result);
+                    //console.log(result);
                     data.view = result;
-                    console.log("data: ", data);
+                    console.log(data);
                     res.render("organizerViewBooking.ejs", data);
                   }
 
