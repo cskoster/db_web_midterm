@@ -27,6 +27,12 @@ module.exports = {
     let splitDate = d.split(":");
     let newDate = splitDate[0] + ":" + splitDate[1];
     return newDate;
+  },
+
+  displayDate: function (dateString) {
+    let splitDate = dateString.split("T");
+    return splitDate[0] + " " + splitDate[1];
+
   }
 
 };

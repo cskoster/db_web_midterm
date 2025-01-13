@@ -381,9 +381,12 @@ router.get('/view_bookings/:event_id', function (req, res) {
                     next(err); //send the error on to the error handler
                   } else {
 
-                    //console.log(result);
+
                     data.view = result;
-                    console.log(data);
+
+
+
+                    //console.log(data);
                     res.render("organizerViewBooking.ejs", data);
                   }
 

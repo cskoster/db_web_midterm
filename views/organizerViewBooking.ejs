@@ -74,12 +74,12 @@
           <% view.forEach((data) => {%>
           <div class="card">
             <div class="clearfix bg-secondary">
-              <div class="card-footer bg-secondary text-white float-start"><%=data.user_name%></div>
+              <div class="card-footer bg-secondary text-white float-start">Name: <%=data.user_name%></div>
               <div class="card-footer bg-secondary text-white float-start"><%=data.email_address%></div>
             </div>
 
             <div class="clearfix bg-info">
-              <div class="card-body bg-info text-black float-start"><%=data.date_booked%></div>
+              <div class="card-body bg-info text-black float-start">Date Booked: <%=data.date_booked%></div>
               <div class="card-body bg-info text-black float-end"><b>Total Tickets: <%=data.num_tickets%></b></div>
             </div>
           </div>
