@@ -365,10 +365,38 @@ router.get('/view_bookings/:event_id', function (req, res) {
               next(err); //send the error on to the error handler
             } else {
               data.event = result[0];
-              console.log("Event data:", data);
+              // console.log("Event data:", data);
 
-              res.render("organizerViewBooking.ejs", data);
+
+              //let queryView = 'SELECT * FROM events WHERE id == "' + event_id + '";';
+              let query = 'SELECT * from booking_view where event_id="' + event_id + '";';
+              console.log(query);
+
+              // console.log("Q: ", queryEvent);
+              global.db.all(query,
+                function (err, result) {
+                  if (err) {
+
+                    // do something if error from lab: res.redirect("/");
+                    next(err); //send the error on to the error handler
+                  } else {
+
+                    console.log(result);
+                    data.view = result;
+                    console.log("data: ", data);
+                    res.render("organizerViewBooking.ejs", data);
+                  }
+
+
+
+                });
+
+
+              //              res.render("organizerViewBooking.ejs", data);
             }
+
+
+
           });
       }
     }
