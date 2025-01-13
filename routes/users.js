@@ -7,6 +7,13 @@
  * NB. it's better NOT to use arrow functions for callbacks with the SQLite library
 * 
  */
+/*
+  From template.
+  Not my work.
+
+  Users are added if not existing when they book an event
+*/
+
 
 const express = require("express");
 const router = express.Router();

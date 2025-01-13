@@ -274,22 +274,3 @@ FROM EVENTS
   INNER JOIN users ON email_accounts.user_id = users.user_id;
 
 COMMIT;
-
--- building query
--- SELECT * FROM email_accounts INNER JOIN users ON email_accounts.user_id = users.user_id WHERE user_name="tony";
---
--- ####### 
--- Get everything relevant
--- SELECT *
--- FROM EVENTS
--- INNER JOIN bookings ON EVENTS.id = bookings.event_id
--- INNER JOIN email_accounts ON bookings.email_account_id = email_accounts.email_account_id
--- INNER JOIN users ON email_accounts.user_id = users.user_id;
---
--- #######
--- Select only what we want to display
--- SELECT user_name, email_address, bookings.num_tickets,date_booked FROM events 
--- INNER JOIN bookings ON events.id=bookings.event_id 
--- INNER JOIN email_accounts ON bookings.email_account_id=email_accounts.email_account_id
--- INNER JOIN users ON email_accounts.user_id=users.user_id
--- WHERE event_id=4;

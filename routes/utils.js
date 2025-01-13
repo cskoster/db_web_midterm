@@ -1,5 +1,6 @@
-
-
+/*
+  Utility functions to help out
+*/
 
 module.exports = {
 
@@ -20,7 +21,6 @@ module.exports = {
   /**Pass in a date object i. dateObject = new Data() 
    * Returns date in: yyyy-mm-ddThh:mm format
   */
-
   formatDate: function (dateObject) {
     let d = dateObject.toJSON();
 
@@ -28,7 +28,8 @@ module.exports = {
     let newDate = splitDate[0] + ":" + splitDate[1];
     return newDate;
   },
-
+  
+  // formats date
   displayDate: function (dateString) {
     let splitDate = dateString.split("T");
     return splitDate[0] + " " + splitDate[1];
