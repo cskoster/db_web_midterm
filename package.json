@@ -12,7 +12,7 @@
     "start": "node index.js",
     "live": "nodemon index.js"
   },
-  "author": "Simon Katan",
+  "author": "Chris Koster",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.3",
