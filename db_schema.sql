@@ -263,7 +263,11 @@ CREATE TABLE IF NOT EXISTS bookings (
 
 -- Create view for all bookings
 CREATE VIEW booking_view AS
-SELECT *
+SELECT users.user_name,
+  email_accounts.email_address,
+  bookings.date_booked,
+  bookings.num_tickets,
+  bookings.event_id
 FROM EVENTS
   INNER JOIN bookings ON EVENTS.id = bookings.event_id
   INNER JOIN email_accounts ON bookings.email_account_id = email_accounts.email_account_id
