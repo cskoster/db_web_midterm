@@ -1,13 +1,3 @@
-/**
- * organizer.js
- * Routes for:
- *  Organizer main page
- *  Organizer setting page
- *  Organizer edit event page
- * TODO add all the routes
- */
-
-
 const express = require("express");
 const router = express.Router();
 
@@ -18,6 +8,7 @@ const util = require('./utils');
 router.get("/", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='organizer_home_page'";
   let data = {};
+
   // Execute the query and render the page with the results
   global.db.all(query,
     function (err, result) {
@@ -30,11 +21,6 @@ router.get("/", function (req, res) {
         // add "page" info to template object
         data.page = result[0]; // only one page with this name. db constraint
 
-        /* 
-          NOTE: this could be done by "SELECT * FROM events;"
-          However, this would put login in the view in violateion of
-          Separation of concern (SOC).
-        */
         let queryUnpublished = 'SELECT * FROM events WHERE published == 0;'
         global.db.all(queryUnpublished,
           function (err, result) {
@@ -45,7 +31,7 @@ router.get("/", function (req, res) {
             } else {
               result.sort(util.compare);
               data.unPublished = result;
-              // start new
+
               let queryPublished = 'SELECT * FROM events WHERE published == 1;';
               global.db.all(queryPublished,
                 function (err, result) {
@@ -60,18 +46,12 @@ router.get("/", function (req, res) {
                     // console.log("HOME: ", data);
                     res.render("organizerHome.ejs", data)
                   }
-                });
-              // end new
-              // add "event" to template object
-
-              // res.render("organizerHome.ejs", data)
+                }); //End get published events query
             }
           }
-        ); // END second query
+        ); // END get unpublished query
       }
-    }
-  );
-
+    }); // end get site setting query
 });
 
 
@@ -79,12 +59,10 @@ router.get("/", function (req, res) {
 router.get("/siteSettings", function (req, res) {
   let query = "SELECT title, description, heading FROM site_settings where name='site_settings_page'";
   let data = {};
-  // Execute the query and render the page with the results
+
   global.db.all(query,
     function (err, result) {
       if (err) {
-
-        // site settings get atted here
 
         // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
@@ -92,14 +70,12 @@ router.get("/siteSettings", function (req, res) {
 
 
         data.page = result[0];
-        // ###########
         let query = " SELECT title, description, heading, name FROM site_settings WHERE name='home_page'  OR name='organizer_home_page'  OR name='edit_event_page' OR name='site_settings_page' OR name='attendee_page' OR name='attendee_events_page';";
 
+        // get all the site settings
         global.db.all(query,
           function (err, result) {
             if (err) {
-              //console.log(err);
-              // do something if error from lab: res.redirect("/");
 
               // This happens if there is no database
               next(err); //send the error on to the error handler
@@ -107,25 +83,19 @@ router.get("/siteSettings", function (req, res) {
 
               data.siteSettings = result;
               console.log(data);
-              // res.render("siteSettings.ejs", { formData: result });
               res.render("siteSettings.ejs", data);
             }
-          }
-        );
+          }); // End get all site settings query
       }
-    });
+    }); // End get site specific query
 });
 
 
-
-// TODO: passing the tablename is not so good, as we write to it
-// ALTERNATE: hard code the wole thing so we dont need to pass the table name
-// then need to write 6 forms, 6 blocks like below.
-//  NOTE way to do this is below
+// Update site wide page settings
 router.post("/update_site_settings", (req, res, next) => {
   query = "UPDATE site_settings SET 'heading'= ?,'description'= ? WHERE name= ?";
-  // console.log("df : ", req.body.name)
   query_parameters = [req.body.heading, req.body.description, req.body.name];
+
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
     function (err) {
@@ -133,15 +103,12 @@ router.post("/update_site_settings", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
         res.redirect("/organizer/siteSettings");
-        next(); // TODO: what do?
       }
-    }
-  );
+    }); // End update site settings query
 });
 
 
 // Organizer Create Event Home
-/** GET a create new event */
 router.get("/create_event", function (req, res) {
 
   let data = {};
@@ -153,21 +120,14 @@ router.get("/create_event", function (req, res) {
         // do something if error from lab: res.redirect("/");
         next(err); //send the error on to the error handler
       } else {
-
-        // ok works
-        //        data.event = result;
         data.page = result[0]; // only one page with this name. db constraint
         res.render("organizerCreateEvent.ejs", data);
       }
-    }
-  ); // END second query
-
-
+    }); // END site settings query
 });
 
 /**POST a create new event */
 router.post("/create_event", (req, res, next) => {
-  //let dateEdited = Date().split(" GMT")[0];
 
   let dateEdited = new Date();
 
@@ -184,20 +144,16 @@ router.post("/create_event", (req, res, next) => {
         next(err); //send the error on to the error handler
       } else {
         res.redirect("/organizer/");
-        //next();
       }
-    }
-  );
+    }); // end site settings query
 });
 
 // Organizer Edit event page
 router.post("/edit_event", function (req, res) {
-  let query = "SELECT title, description, heading FROM site_settings where name='edit_event_page'";
-
-
+  // date object holds data for template
   let data = {};
 
-  // second query
+  let query = "SELECT title, description, heading FROM site_settings where name='edit_event_page'";
   global.db.all(query,
     function (err, result) {
       if (err) {
@@ -208,15 +164,8 @@ router.post("/edit_event", function (req, res) {
 
         data.page = result[0];
 
-        // second query
-
-        // TODO use this, like in update_event below
-        // query = "UPDATE events SET 'title'= ?,'description'= ? WHERE = ?";
-        // let queryEvent = `SELECT * FROM events WHERE id=${req.body.id};`
-
         let queryEvent = 'SELECT * FROM events WHERE id=?';
         let query_parameters = [req.body.id];
-
         global.db.all(queryEvent, query_parameters,
           function (err, result) {
             if (err) {
@@ -229,43 +178,22 @@ router.post("/edit_event", function (req, res) {
               console.log("DATA: ", data);
               res.render("organizerEditEvent.ejs", data)
             }
-          }
-        ); // END second query
+          }); // END select from event query
       }
-    }
-  );
-
+    }); // end site setting query
 });
 
-
+// Updates event
 router.post("/update_event", (req, res, next) => {
   if (!req.body.published) {
-    // console.log("null;")
     req.body.published = 0;
   }
-
-  //console.log("ID: ", req.body.id)
 
   let dateEdited = new Date();
   dateEdited = util.formatDate(dateEdited);
 
-  // HERE:
-  /*
-  This is the problem: we cannot put placeholder in the date picker.
-  WE must redo the create event to ask for date in yyyy-mm-dd formatm and a separate field
-  for hh:mm format.
-
-  Just pass the string for new
-
-  */
-
-  // ok this is what the form sent
-  //  console.log("here:", req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id);
-
-
   query = "UPDATE events SET title= ?, description=?, date_edited=?, date_event=? , num_tickets=? WHERE id=?;";
   query_parameters = [req.body.title, req.body.description, dateEdited, req.body.date_event, req.body.num_tickets, req.body.id];
-
 
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
@@ -276,17 +204,16 @@ router.post("/update_event", (req, res, next) => {
       } else {
         console.log(query_parameters);
         res.redirect("/organizer/");
-        //next(); // TODO: what do?
       }
     }
   );
 });
 
+// Delete Event. No warning!
 router.post("/delete_event", (req, res, next) => {
   query = "DELETE FROM events WHERE id=?;";
   query_parameters = [req.body.id];
 
-
   // Execute the query and send a confirmation message
   global.db.run(query, query_parameters,
     function (err) {
@@ -296,15 +223,12 @@ router.post("/delete_event", (req, res, next) => {
       } else {
         console.log(query_parameters);
         res.redirect("/organizer/");
-        next(); // TODO: what do?
       }
-    }
-  );
+    }); // End delete query
 });
 
-
+// Publishes the event into DB
 router.post("/publish_event", (req, res, next) => {
-  console.log("publish")
   let datePublished = new Date();
   datePublished = util.formatDate(datePublished);
 
@@ -320,7 +244,6 @@ router.post("/publish_event", (req, res, next) => {
         console.log("ERROR")
         next(err); //send the error on to the error handler
       } else {
-        console.log(query_parameters);
         res.redirect("/organizer/");
         next(); // TODO: what do?
       }
